@@ -49,7 +49,7 @@ local hsl = lush.hsl
 -- Saturation (0 - 100) (0 is gray, 100 is colored)
 -- Lightness  (0 - 100) (0 is black, 100 is white)
 
-local saturation = 60
+local saturation = 50
 local lightness = 75
 local c1 = hsl(040, saturation, lightness)
 local c2 = hsl(160, saturation, lightness)
