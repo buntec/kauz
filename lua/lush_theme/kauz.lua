@@ -64,6 +64,7 @@ local selection = c3.darken(50)
 local visualmode = c3.darken(50)
 local comment = c3.desaturate(50).darken(50)
 local linenr = gray.darken(50)
+local whitespace = linenr
 
 local error = hsl(0, 50, 50)
 local warn = hsl(20, 50, 50)
@@ -152,7 +153,7 @@ local theme = lush(function(injected_functions)
 		Visual({ bg = visualmode }), -- Visual mode selection
 		-- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
 		WarningMsg({ fg = warn }), -- Warning messages
-		Whitespace({}), -- "nbsp", "space", "tab" and "trail" in 'listchars'
+		Whitespace({ fg = whitespace }), -- "nbsp", "space", "tab" and "trail" in 'listchars'
 		-- Winseparator   { }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
 		WildMenu({ bg = c2 }), -- Current match in 'wildmenu' completion
 		-- WinBar         { }, -- Window bar of current window
