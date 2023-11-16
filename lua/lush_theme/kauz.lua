@@ -43,15 +43,15 @@
 --  `:lua require('lush').ify()`
 
 local lush = require("lush")
-local hsl = lush.hsl
+local hsl = lush.hsluv
 
 -- Hue        (0 - 360) (each value is a angle around the color wheel)
 -- Saturation (0 - 100) (0 is gray, 100 is colored)
 -- Lightness  (0 - 100) (0 is black, 100 is white)
 
-local saturation = 45
+local saturation = 50
 local lightness = 75
-local alpha = 5
+local alpha = 30
 local normaltext = hsl(0, 0, lightness)
 local c1 = hsl(40, saturation, lightness).rotate(alpha)
 local c2 = hsl(160, saturation, lightness).rotate(alpha)
