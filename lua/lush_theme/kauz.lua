@@ -60,7 +60,11 @@ local c4 = hsl(280, saturation, lightness).rotate(alpha)
 local c5 = hsl(320, saturation, lightness).rotate(alpha)
 local bg = c3.darken(83)
 local gray = hsl(0, 0, 60)
-local selection = c3.darken(50)
+local black = hsl(0, 0, 15)
+local red = hsl(0, 50, 50)
+local green = hsl(140, 50, 50)
+local yellow = hsl(40, 50, 50)
+local selection = c3.darken(60)
 local visualmode = c3.darken(50)
 local comment = c3.desaturate(50).darken(50)
 local linenr = gray.darken(50)
@@ -90,12 +94,12 @@ local theme = lush(function(injected_functions)
 		--
 		-- ColorColumn    { }, -- Columns set with 'colorcolumn'
 		-- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
-		-- Cursor         { }, -- Character under the cursor
-		-- CurSearch      { }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
-		-- lCursor        { }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
-		-- CursorIM       { }, -- Like Cursor, but used when in IME mode |CursorIM|
-		-- CursorColumn   { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-		-- CursorLine     { }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+		Cursor({ bg = c1, fg = normaltext }), -- Character under the cursor
+		CurSearch({}), -- Highlighting a search pattern under the cursor (see 'hlsearch')
+		lCursor({}), -- Character under the cursor when |language-mapping| is used (see 'guicursor')
+		CursorIM({}), -- Like Cursor, but used when in IME mode |CursorIM|
+		CursorColumn({}), -- Screen-column at the cursor, when 'cursorcolumn' is set.
+		CursorLine({}), -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
 		Directory({ fg = c3 }), -- Directory names (and other special names in listings)
 		-- DiffAdd        { }, -- Diff mode: Added line |diff.txt|
 		-- DiffChange     { }, -- Diff mode: Changed line |diff.txt|
@@ -321,6 +325,10 @@ local theme = lush(function(injected_functions)
 		GitSignsDelete({ fg = error }), -- diff mode: Deleted line |diff.txt|   --
 		--
 		--
+		KittyBlack({ fg = black, bg = black }),
+		KittyRed({ fg = red, bg = red }),
+		KittyGreen({ fg = green, bg = green }),
+		KittyYellow({ fg = yellow, bg = yellow }),
 	}
 end)
 
