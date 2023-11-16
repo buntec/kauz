@@ -51,16 +51,18 @@ local hsl = lush.hsl
 
 local saturation = 50
 local lightness = 75
-local c1 = hsl(040, saturation, lightness)
-local c2 = hsl(160, saturation, lightness)
-local c3 = hsl(200, saturation, lightness)
-local c4 = hsl(280, saturation, lightness)
-local c5 = hsl(320, saturation, lightness)
-local bg = c3.darken(83)
-local gray = hsl(0, 0, 70)
+local alpha = 5
+local normaltext = hsl(0, 0, lightness)
+local c1 = hsl(40, saturation, lightness).rotate(alpha)
+local c2 = hsl(160, saturation, lightness).rotate(alpha)
+local c3 = hsl(200, saturation, lightness).rotate(alpha)
+local c4 = hsl(280, saturation, lightness).rotate(alpha)
+local c5 = hsl(320, saturation, lightness).rotate(alpha)
+local bg = c3.darken(80)
+local gray = hsl(0, 0, 60)
 local selection = c3.darken(50)
 local visualmode = c3.darken(50)
-local comment = c3.desaturate(00).darken(50)
+local comment = c3.desaturate(50).darken(50)
 local linenr = gray.darken(50)
 
 local error = hsl(0, 50, 50)
@@ -120,12 +122,12 @@ local theme = lush(function(injected_functions)
 		-- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
 		MoreMsg({ fg = c2 }), -- |more-prompt|
 		NonText({ fg = linenr }), -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-		Normal({ bg = bg, fg = c1 }), -- Normal text
+		Normal({ bg = bg, fg = normaltext }), -- Normal text
 		-- NormalFloat    { }, -- Normal text in floating windows.
 		-- FloatBorder    { }, -- Border of floating windows.
 		-- FloatTitle     { }, -- Title of floating windows
 		-- NormalNC       { }, -- normal text in non-current windows
-		-- Pmenu          { }, -- Popup menu: Normal item.
+		Pmenu({ fg = normaltext }), -- Popup menu: Normal item.
 		-- PmenuSel       { }, -- Popup menu: Selected item.
 		-- PmenuKind      { }, -- Popup menu: Normal item "kind"
 		-- PmenuKindSel   { }, -- Popup menu: Selected item "kind"
@@ -146,13 +148,13 @@ local theme = lush(function(injected_functions)
 		-- TabLine        { }, -- Tab pages line, not active tab page label
 		-- TabLineFill    { }, -- Tab pages line, where there are no labels
 		-- TabLineSel     { }, -- Tab pages line, active tab page label
-		-- Title          { }, -- Titles for output from ":set all", ":autocmd" etc.
+		Title({ fg = c2 }), -- Titles for output from ":set all", ":autocmd" etc.
 		Visual({ bg = visualmode }), -- Visual mode selection
 		-- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
 		WarningMsg({ fg = warn }), -- Warning messages
 		Whitespace({}), -- "nbsp", "space", "tab" and "trail" in 'listchars'
 		-- Winseparator   { }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
-		-- WildMenu       { }, -- Current match in 'wildmenu' completion
+		WildMenu({ bg = c2 }), -- Current match in 'wildmenu' completion
 		-- WinBar         { }, -- Window bar of current window
 		-- WinBarNC       { }, -- Window bar of not-current windows
 
@@ -167,7 +169,7 @@ local theme = lush(function(injected_functions)
 		Comment({ fg = comment, gui = "italic" }), -- Any comment
 
 		-- Constant       { }, -- (*) Any constant
-		String({ fg = c5 }), --   A string constant: "this is a string"
+		String({ fg = c1 }), --   A string constant: "this is a string"
 		-- Character      { }, --   A character constant: 'c', '\n'
 		Number({ fg = c5 }), --   A number constant: 234, 0xff
 		Boolean({ fg = c1 }), --   A boolean constant: TRUE, false
@@ -177,25 +179,25 @@ local theme = lush(function(injected_functions)
 		Function({ fg = c3 }), --   Function name (also: methods for classes)
 
 		Statement({ fg = c1 }), -- (*) Any statement
-		-- Conditional    { }, --   if, then, else, endif, switch, etc.
+		-- Conditional({  }), --   if, then, else, endif, switch, etc.
 		-- Repeat         { }, --   for, do, while, etc.
 		-- Label          { }, --   case, default, etc.
 		-- Operator       { }, --   "sizeof", "+", "*", etc.
 		-- Keyword        { }, --   any other keyword
 		-- Exception      { }, --   try, catch, throw
 
-		-- PreProc        { }, -- (*) Generic Preprocessor
+		PreProc({ fg = c2 }), -- (*) Generic Preprocessor
 		-- Include        { }, --   Preprocessor #include
 		-- Define         { }, --   Preprocessor #define
 		-- Macro          { }, --   Same as Define
 		-- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-		Type({ fg = c4 }), -- (*) int, long, char, etc.
+		Type({ fg = c2 }), -- (*) int, long, char, etc.
 		-- StorageClass   { }, --   static, register, volatile, etc.
 		-- Structure      { }, --   struct, union, enum, etc.
 		-- Typedef        { }, --   A typedef
 
-		-- Special        { }, -- (*) Any special symbol
+		Special({ fg = c4 }), -- (*) Any special symbol
 		-- SpecialChar    { }, --   Special character in a constant
 		-- Tag            { }, --   You can use CTRL-] on this
 		Delimiter({ fg = gray }), --   Character that needs attention
@@ -205,7 +207,7 @@ local theme = lush(function(injected_functions)
 		-- Underlined     { gui = "underline" }, -- Text that stands out, HTML links
 		-- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
 		-- Error          { }, -- Any erroneous construct
-		-- Todo           { }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+		Todo({ bg = c2 }), -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
 		-- These groups are for the native LSP client and diagnostic system. Some
 		-- other LSP clients may use these groups, or use their own. Consult your
@@ -265,13 +267,13 @@ local theme = lush(function(injected_functions)
 		--
 		-- For more information see https://github.com/rktjmp/lush.nvim/issues/109
 
-		-- sym"@text.literal"      { }, -- Comment
+		sym("@text.literal")({ fg = c3 }), -- Comment
 		sym("@text.reference")({ fg = c1 }), -- Identifier
-		-- sym"@text.title"        { }, -- Title
-		-- sym"@text.uri"          { }, -- Underlined
+		sym("@text.title")({ fg = c2 }), -- Title
+		sym("@text.uri")({ fg = c4 }), -- Underlined
 		-- sym"@text.underline"    { }, -- Underlined
 		-- sym"@text.todo"         { }, -- Todo
-		-- sym"@comment"           { }, -- Comment
+		sym("@comment")({ fg = comment }), -- Comment
 		-- sym"@punctuation"       { }, -- Delimiter
 		-- sym"@constant"          { }, -- Constant
 		-- sym"@constant.builtin"  { }, -- Special
@@ -280,7 +282,7 @@ local theme = lush(function(injected_functions)
 		-- sym"@macro"             { }, -- Macro
 		-- sym"@string"            { }, -- String
 		-- sym"@string.escape"     { }, -- SpecialChar
-		-- sym"@string.special"    { }, -- SpecialChar
+		sym("@string.special")({ fg = c5 }), -- SpecialChar
 		-- sym"@character"         { }, -- Character
 		-- sym"@character.special" { }, -- SpecialChar
 		-- sym"@number"            { }, -- Number
@@ -288,7 +290,7 @@ local theme = lush(function(injected_functions)
 		-- sym"@float"             { }, -- Float
 		sym("@function")({ fg = c1 }), -- Function
 		-- sym"@function.builtin"  { }, -- Special
-		-- sym"@function.macro"    { }, -- Macro
+		sym("@function.macro")({ fg = c2 }), -- Macro
 		sym("@parameter")({}), -- Identifier
 		sym("@method")({ fg = c3 }), -- Function
 		sym("@field")({ fg = c4 }), -- Identifier
@@ -298,7 +300,7 @@ local theme = lush(function(injected_functions)
 		-- sym"@repeat"            { }, -- Repeat
 		-- sym"@label"             { }, -- Label
 		-- sym"@operator"          { }, -- Operator
-		sym("@keyword")({ fg = c1, gui = "italic" }), -- Keyword
+		sym("@keyword")({ fg = c4, gui = "italic" }), -- Keyword
 		-- sym"@exception"         { }, -- Exception
 		sym("@variable")({ fg = c3 }), -- Identifier
 		-- sym"@type"              { }, -- Type
