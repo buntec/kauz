@@ -49,7 +49,7 @@ local hsl = lush.hsl
 -- Saturation (0 - 100) (0 is gray, 100 is colored)
 -- Lightness  (0 - 100) (0 is black, 100 is white)
 
-local saturation = 50
+local saturation = 45
 local lightness = 75
 local alpha = 5
 local normaltext = hsl(0, 0, lightness)
@@ -107,7 +107,7 @@ local theme = lush(function(injected_functions)
 		-- VertSplit      { }, -- Column separating vertically split windows
 		-- Folded         { }, -- Line used for closed folds
 		-- FoldColumn     { }, -- 'foldcolumn'
-		-- SignColumn     { }, -- Column where |signs| are displayed
+		SignColumn({}), -- Column where |signs| are displayed
 		-- IncSearch      { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		-- Substitute     { }, -- |:substitute| replacement text highlighting
 		LineNr({ fg = linenr }), -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
@@ -192,7 +192,7 @@ local theme = lush(function(injected_functions)
 		-- Macro          { }, --   Same as Define
 		-- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-		Type({ fg = c2 }), -- (*) int, long, char, etc.
+		Type({ fg = c3 }), -- (*) int, long, char, etc.
 		-- StorageClass   { }, --   static, register, volatile, etc.
 		-- Structure      { }, --   struct, union, enum, etc.
 		-- Typedef        { }, --   A typedef
@@ -312,6 +312,14 @@ local theme = lush(function(injected_functions)
 		-- sym"@preproc"           { }, -- PreProc
 		-- sym"@debug"             { }, -- Debug
 		-- sym"@tag"               { }, -- Tag
+		--
+		--
+		-- GitSigns
+		GitSignsAdd({ fg = ok }), -- diff mode: Added line |diff.txt|
+		GitSignsChange({ fg = warn }), -- diff mode: Changed line |diff.txt|
+		GitSignsDelete({ fg = error }), -- diff mode: Deleted line |diff.txt|   --
+		--
+		--
 	}
 end)
 
