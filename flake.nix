@@ -4,6 +4,7 @@
   outputs = { self, nixpkgs }:
 
     let
+      inherit (nixpkgs) lib;
       inherit (nixpkgs.lib) genAttrs;
 
       version = if (self ? rev) then self.rev else "dirty";
@@ -16,11 +17,17 @@
       ];
 
       mkPackages = pkgs: {
-        kauz-nvim = pkgs.vimUtils.buildVimPlugin {
+        kauz-nvim = (pkgs.vimUtils.buildVimPlugin {
           inherit version;
           pname = "kauz-nvim";
           src = ./.;
           meta.homepage = "https://github.com/buntec/kauz/";
+        }).overrideAttrs { dependencies = [ pkgs.vimPlugins.lush-nvim ]; };
+
+        kauz-fish = pkgs.fishPlugins.buildFishPlugin {
+          inherit version;
+          pname = "kauz-fish";
+          src = ./extras/fish;
         };
 
       };

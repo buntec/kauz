@@ -49,7 +49,7 @@ function M.setup()
 		fname
 	)
 	local fish = require("lush_theme.extra.fish")
-	fname = "fish/kauz.fish"
+	fname = "fish/conf.d/kauz.fish"
 	write(
 		fish.generate({
 			normal = kauz.FishNormal.fg.hex,
