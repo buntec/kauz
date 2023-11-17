@@ -53,15 +53,16 @@ local saturation = 50
 local lightness = 75
 local alpha = 30
 local normaltext = hsl(0, 0, lightness)
-local c1 = hsl(40, saturation, lightness).rotate(alpha)
-local c2 = hsl(160, saturation, lightness).rotate(alpha)
-local c3 = hsl(200, saturation, lightness).rotate(alpha)
-local c4 = hsl(280, saturation, lightness).rotate(alpha)
-local c5 = hsl(320, saturation, lightness).rotate(alpha)
+local c1 = hsl(40, saturation, lightness).rotate(alpha) -- yellow
+local c2 = hsl(160, saturation, lightness).rotate(alpha) -- blue
+local c3 = hsl(200, saturation, lightness).rotate(alpha) -- purple
+local c4 = hsl(280, saturation, lightness).rotate(alpha) -- pink
+local c5 = hsl(320, saturation, lightness).rotate(alpha) -- orange
 local bg = c3.darken(83)
 local gray = hsl(0, 0, 60)
 local black = hsl(0, 0, 15)
 local white = hsl(0, 0, 85)
+
 local red = hsl(0, 50, 50)
 local green = hsl(140, 50, 50)
 local yellow = hsl(40, 50, 50)
@@ -340,6 +341,25 @@ local theme = lush(function(injected_functions)
 		KittyWhite({ fg = white, bg = white }),
 		KittyBorder({ fg = c4, bg = gray }),
 		KittyUrl({ fg = c5 }),
+
+		FishNormal({ fg = normaltext }),
+		FishCommand({ fg = c1 }),
+		FishKeyword({ fg = c4 }),
+		FishQuote({ fg = c1 }),
+		FishRedirection({ fg = c5 }),
+		FishEnd({ fg = c2 }),
+		FishError({ fg = error }),
+		FishParam({ fg = c3 }),
+		FishComment({ fg = comment }),
+		FishSelection({ fg = selection }),
+		FishOperator({ fg = c1 }),
+		FishEscape({ fg = c4 }),
+		FishAutosuggestion({ fg = c2 }),
+		FishPagerProgress({ fg = c1 }),
+		FishPagerPrefix({ fg = c2 }),
+		FishPagerCompletion({ fg = c3 }),
+		FishPagerDescription({ fg = c4 }),
+		FishPagerSelectedBackground({ fg = selection }),
 	}
 end)
 

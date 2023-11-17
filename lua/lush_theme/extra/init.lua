@@ -17,7 +17,7 @@ end
 function M.setup()
 	local kauz = require("lush_theme.kauz")
 	local kitty = require("lush_theme.extra.kitty")
-	local fname = "kauz.conf"
+	local fname = "kitty/kauz.conf"
 	write(
 		kitty.generate({
 			foreground = kauz.Normal.fg.hex,
@@ -45,6 +45,31 @@ function M.setup()
 			active_border_color = kauz.KittyBorder.fg.hex,
 			inactive_border_color = kauz.KittyBorder.bg.hex,
 			url_color = kauz.KittyUrl.fg.hex,
+		}),
+		fname
+	)
+	local fish = require("lush_theme.extra.fish")
+	fname = "fish/kauz.fish"
+	write(
+		fish.generate({
+			normal = kauz.FishNormal.fg.hex,
+			command = kauz.FishCommand.fg.hex,
+			keyword = kauz.FishKeyword.fg.hex,
+			quote = kauz.FishQuote.fg.hex,
+			redirection = kauz.FishRedirection.fg.hex,
+			["end"] = kauz.FishEnd.fg.hex,
+			error = kauz.FishError.fg.hex,
+			param = kauz.FishParam.fg.hex,
+			comment = kauz.FishComment.fg.hex,
+			selection = kauz.FishSelection.fg.hex,
+			operator = kauz.FishOperator.fg.hex,
+			escape = kauz.FishEscape.fg.hex,
+			autosuggestion = kauz.FishAutosuggestion.fg.hex,
+			pager_progress = kauz.FishPagerProgress.fg.hex,
+			pager_prefix = kauz.FishPagerPrefix.fg.hex,
+			pager_completion = kauz.FishPagerCompletion.fg.hex,
+			pager_description = kauz.FishPagerDescription.fg.hex,
+			pager_selected_background = kauz.FishPagerSelectedBackground.fg.hex,
 		}),
 		fname
 	)
