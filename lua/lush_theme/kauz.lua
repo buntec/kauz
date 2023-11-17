@@ -61,9 +61,14 @@ local c5 = hsl(320, saturation, lightness).rotate(alpha)
 local bg = c3.darken(83)
 local gray = hsl(0, 0, 60)
 local black = hsl(0, 0, 15)
+local white = hsl(0, 0, 85)
 local red = hsl(0, 50, 50)
 local green = hsl(140, 50, 50)
 local yellow = hsl(40, 50, 50)
+local blue = hsl(220, 50, 50)
+local magenta = hsl(280, 50, 50)
+local cyan = hsl(180, 50, 50)
+
 local selection = c3.darken(60)
 local visualmode = c3.darken(50)
 local comment = c3.desaturate(50).darken(50)
@@ -329,6 +334,12 @@ local theme = lush(function(injected_functions)
 		KittyRed({ fg = red, bg = red }),
 		KittyGreen({ fg = green, bg = green }),
 		KittyYellow({ fg = yellow, bg = yellow }),
+		KittyBlue({ fg = blue, bg = blue }),
+		KittyMagenta({ fg = magenta, bg = magenta }),
+		KittyCyan({ fg = cyan, bg = cyan }),
+		KittyWhite({ fg = white, bg = white }),
+		KittyBorder({ fg = c4, bg = gray }),
+		KittyUrl({ fg = c5 }),
 	}
 end)
 
