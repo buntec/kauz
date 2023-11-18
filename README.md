@@ -11,5 +11,6 @@ Kauz is distributed as a nix flake exposing a [home-manager](https://github.com/
 
 ## Acknowledgements:
 
-Utilities for generating tmux, fish and kitty configurations are taken from [Tokyo Night](https://github.com/folke/tokyonight.nvim)
+Utilities for generating tmux, fish and kitty configurations
+are taken from [Tokyo Night](https://github.com/folke/tokyonight.nvim).
 
