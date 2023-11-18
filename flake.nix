@@ -59,5 +59,8 @@
 
       overlays.default = final: _: mkPackages final;
 
+      # home-manager module
+      homeModules = { kauz = import ./home; };
+
     };
 }
