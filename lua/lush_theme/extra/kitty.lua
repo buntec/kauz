@@ -2,7 +2,6 @@ local util = require("lush_theme.utils")
 
 local M = {}
 
---- @param colors ColorScheme
 function M.generate(colors)
 	local kitty = util.template(
 		[[
@@ -109,7 +108,6 @@ color14 ${cyan_bright}
 #: white
 color7  ${white}
 color15 ${white_bright}
-
 ]],
 		colors
 	)

@@ -58,6 +58,7 @@ local c2 = hsl(160, saturation, lightness).rotate(alpha) -- blue
 local c3 = hsl(200, saturation, lightness).rotate(alpha) -- purple
 local c4 = hsl(280, saturation, lightness).rotate(alpha) -- pink
 local c5 = hsl(320, saturation, lightness).rotate(alpha) -- orange
+local fg = normaltext
 local bg = c3.darken(83)
 local gray = hsl(0, 0, 60)
 local black = hsl(0, 0, 15)
@@ -360,6 +361,15 @@ local theme = lush(function(injected_functions)
 		FishPagerCompletion({ fg = c3 }),
 		FishPagerDescription({ fg = c4 }),
 		FishPagerSelectedBackground({ fg = selection }),
+
+		TmuxMode({ fg = c1, bg = bg }),
+		TmuxMessage({ fg = c1, bg = bg }),
+		TmuxMessageCommand({ fg = c2, bg = bg }),
+		TmuxPaneBorder({ fg = fg }),
+		TmuxPaneActiveBorder({ fg = c3 }),
+		TmuxStatus({ fg = c4, bg = bg.darken(20) }),
+		TmuxWindowStatus({ fg = c2, bg = bg }),
+		TmuxWindowStatusActivity({ fg = c3, bg = bg }),
 	}
 end)
 

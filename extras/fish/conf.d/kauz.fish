@@ -1,4 +1,4 @@
-    # Kauz
+    # Kauz colorscheme
 
     # Syntax Highlighting Colors
     set -g fish_color_normal B9B9B9
@@ -22,5 +22,4 @@
     set -g fish_pager_color_completion 8DBFDD
     set -g fish_pager_color_description DDA8DA
     set -g fish_pager_color_selected_background --background=334A57
-
   

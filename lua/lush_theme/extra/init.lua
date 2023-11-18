@@ -17,6 +17,8 @@ end
 function M.setup()
 	local kauz = require("lush_theme.kauz")
 	local kitty = require("lush_theme.extra.kitty")
+	local fish = require("lush_theme.extra.fish")
+	local tmux = require("lush_theme.extra.tmux")
 	local fname = "kitty/kauz.conf"
 	write(
 		kitty.generate({
@@ -48,7 +50,6 @@ function M.setup()
 		}),
 		fname
 	)
-	local fish = require("lush_theme.extra.fish")
 	fname = "fish/conf.d/kauz.fish"
 	write(
 		fish.generate({
@@ -70,6 +71,26 @@ function M.setup()
 			pager_completion = kauz.FishPagerCompletion.fg.hex,
 			pager_description = kauz.FishPagerDescription.fg.hex,
 			pager_selected_background = kauz.FishPagerSelectedBackground.fg.hex,
+		}),
+		fname
+	)
+	fname = "tmux/kauz.tmux"
+	write(
+		tmux.generate({
+			mode_fg = kauz.TmuxMode.fg.hex,
+			mode_bg = kauz.TmuxMode.bg.hex,
+			message_fg = kauz.TmuxMessage.fg.hex,
+			message_bg = kauz.TmuxMessage.bg.hex,
+			message_command_fg = kauz.TmuxMessageCommand.fg.hex,
+			message_command_bg = kauz.TmuxMessageCommand.bg.hex,
+			pane_border_fg = kauz.TmuxPaneBorder.fg.hex,
+			pane_active_border_fg = kauz.TmuxPaneActiveBorder.fg.hex,
+			status_fg = kauz.TmuxStatus.fg.hex,
+			status_bg = kauz.TmuxStatus.bg.hex,
+			window_status_fg = kauz.TmuxWindowStatus.fg.hex,
+			window_status_bg = kauz.TmuxWindowStatus.bg.hex,
+			window_status_activity_fg = kauz.TmuxWindowStatusActivity.fg.hex,
+			window_status_activity_bg = kauz.TmuxWindowStatusActivity.bg.hex,
 		}),
 		fname
 	)

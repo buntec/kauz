@@ -2,7 +2,6 @@ local util = require("lush_theme.utils")
 
 local M = {}
 
---- @param colors ColorScheme
 function M.generate(colors)
   local fishColors = {}
   for k, v in pairs(colors) do
@@ -13,7 +12,7 @@ function M.generate(colors)
 
   local fish = util.template(
     [[
-    # Kauz
+    # Kauz colorscheme
 
     # Syntax Highlighting Colors
     set -g fish_color_normal ${normal}
@@ -37,7 +36,6 @@ function M.generate(colors)
     set -g fish_pager_color_completion ${pager_completion}
     set -g fish_pager_color_description ${pager_description}
     set -g fish_pager_color_selected_background --background=${pager_selected_background}
-
   ]],
     fishColors
   )
