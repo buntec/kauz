@@ -52,24 +52,20 @@ local hsl = lush.hsluv
 local saturation = 50
 local lightness = 75
 local alpha = 30
-local normaltext = hsl(0, 0, lightness)
+
 local c1 = hsl(40, saturation, lightness).rotate(alpha) -- yellow
 local c2 = hsl(160, saturation, lightness).rotate(alpha) -- blue
 local c3 = hsl(200, saturation, lightness).rotate(alpha) -- purple
 local c4 = hsl(280, saturation, lightness).rotate(alpha) -- pink
 local c5 = hsl(320, saturation, lightness).rotate(alpha) -- orange
+
+local normaltext = hsl(0, 0, lightness)
 local fg = normaltext
 local bg = c3.darken(83)
+
 local gray = hsl(0, 0, 60)
 local black = hsl(0, 0, 15)
 local white = hsl(0, 0, 85)
-
-local red = hsl(0, saturation, lightness)
-local green = hsl(140, saturation, lightness)
-local yellow = hsl(40, saturation, lightness)
-local blue = hsl(220, saturation, lightness)
-local magenta = hsl(280, saturation, lightness)
-local cyan = hsl(180, saturation, lightness)
 
 local selection = c3.darken(60)
 local visualmode = c3.darken(50)
@@ -83,6 +79,13 @@ local ok = hsl(140, 50, 50)
 local info = hsl(200, 50, 50)
 local hint = info
 
+-- terminal colors
+local red = hsl(0, 50, 50)
+local green = hsl(140, 50, 50)
+local yellow = hsl(40, 50, 50)
+local blue = hsl(220, 50, 50)
+local magenta = hsl(280, 50, 50)
+local cyan = hsl(180, 50, 50)
 local terminal_br = 20 -- how much to brighten the 'br' terminal colors
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
@@ -396,6 +399,19 @@ local theme = lush(function(injected_functions)
 		LualineInactiveA({ fg = gray, bg = bg }),
 		LualineInactiveB({ fg = gray, bg = bg.darken(10) }),
 		LualineInactiveC({ fg = gray, bg = bg.darken(20) }),
+
+		KauzMetaC1({ fg = c1 }),
+		KauzMetaC2({ fg = c2 }),
+		KauzMetaC3({ fg = c3 }),
+		KauzMetaC4({ fg = c4 }),
+		KauzMetaC5({ fg = c5 }),
+		KauzMetaFg({ fg = fg }),
+		KauzMetaBg({ fg = bg }),
+		KauzMetaBlack({ fg = black }),
+		KauzMetaGray({ fg = gray }),
+		KauzMetaWhite({ fg = white }),
+		KauzMetaComment({ fg = comment }),
+		KauzMetaSelection({ fg = selection }),
 	}
 end)
 
