@@ -1,8 +1,9 @@
 # Kauz
 
+*This is work in progress!*
+
 A colorscheme for neovim built with [Lush](https://github.com/rktjmp/lush.nvim). 
 Includes matching themes for kitty, fish and tmux.
-
 
 ## Install
 
