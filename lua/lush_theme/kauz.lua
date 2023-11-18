@@ -83,6 +83,8 @@ local ok = hsl(140, 50, 50)
 local info = hsl(200, 50, 50)
 local hint = info
 
+local terminal_br = 20 -- how much to brighten the 'br' terminal colors
+
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
 ---@diagnostic disable: undefined-global
@@ -332,15 +334,15 @@ local theme = lush(function(injected_functions)
 		GitSignsDelete({ fg = error }), -- diff mode: Deleted line |diff.txt|   --
 		--
 		--
-		KittyBlack({ fg = black, bg = black }),
-		KittyRed({ fg = red, bg = red }),
-		KittyGreen({ fg = green, bg = green }),
-		KittyYellow({ fg = yellow, bg = yellow }),
-		KittyBlue({ fg = blue, bg = blue }),
-		KittyMagenta({ fg = magenta, bg = magenta }),
-		KittyCyan({ fg = cyan, bg = cyan }),
-		KittyWhite({ fg = white, bg = white }),
-		KittyBorder({ fg = c4, bg = gray }),
+		KittyBlack({ fg = black.li(terminal_br), bg = black }),
+		KittyRed({ fg = red.li(terminal_br), bg = red }),
+		KittyGreen({ fg = green.li(terminal_br), bg = green }),
+		KittyYellow({ fg = yellow.li(terminal_br), bg = yellow }),
+		KittyBlue({ fg = blue.li(terminal_br), bg = blue }),
+		KittyMagenta({ fg = magenta.li(terminal_br), bg = magenta }),
+		KittyCyan({ fg = cyan.li(terminal_br), bg = cyan }),
+		KittyWhite({ fg = white.li(terminal_br), bg = white }),
+		KittyBorder({ fg = c4.li(terminal_br), bg = gray }),
 		KittyUrl({ fg = c5 }),
 
 		FishNormal({ fg = normaltext }),
