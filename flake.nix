@@ -4,7 +4,6 @@
   outputs = { self, nixpkgs }:
 
     let
-      inherit (nixpkgs) lib;
       inherit (nixpkgs.lib) genAttrs;
 
       version = if (self ? rev) then self.rev else "dirty";
@@ -37,6 +36,16 @@
           installPhase = ''
             mkdir -p $out
             cp kauz.conf $out/
+          '';
+        };
+
+        kauz-tmux = pkgs.stdenv.mkDerivation {
+          inherit version;
+          pname = "kauz-tmux";
+          src = ./extras/tmux;
+          installPhase = ''
+            mkdir -p $out
+            cp kauz.tmux $out/
           '';
         };
 
