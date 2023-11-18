@@ -14,7 +14,7 @@
     set -g fish_color_search_match --background=334A57
     set -g fish_color_operator CAB882
     set -g fish_color_escape DDA8DA
-    set -g fish_color_autosuggestion 87C3C2
+    set -g fish_color_autosuggestion 4F5B63
 
     # Completion Pager Colors
     set -g fish_pager_color_progress CAB882

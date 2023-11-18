@@ -370,6 +370,30 @@ local theme = lush(function(injected_functions)
 		TmuxStatus({ fg = c4, bg = bg.darken(20) }),
 		TmuxWindowStatus({ fg = c2, bg = bg }),
 		TmuxWindowStatusActivity({ fg = c3, bg = bg }),
+
+		LualineNormalA({ fg = fg, bg = bg }),
+		LualineNormalB({ fg = fg, bg = bg.darken(10) }),
+		LualineNormalC({ fg = fg, bg = bg.darken(20) }),
+
+		LualineInsertA({ fg = c3, bg = bg }),
+		LualineInsertB({ fg = c3, bg = bg.darken(10) }),
+		LualineInsertC({ fg = c3, bg = bg.darken(20) }),
+
+		LualineVisualA({ fg = c1, bg = bg }),
+		LualineVisualB({ fg = c1, bg = bg.darken(10) }),
+		LualineVisualC({ fg = c1, bg = bg.darken(20) }),
+
+		LualineReplaceA({ fg = c2, bg = bg }),
+		LualineReplaceB({ fg = c2, bg = bg.darken(10) }),
+		LualineReplaceC({ fg = c2, bg = bg.darken(20) }),
+
+		LualineCommandA({ fg = c2, bg = bg }),
+		LualineCommandB({ fg = c2, bg = bg.darken(10) }),
+		LualineCommandC({ fg = c2, bg = bg.darken(20) }),
+
+		LualineInactiveA({ fg = gray, bg = bg }),
+		LualineInactiveB({ fg = gray, bg = bg.darken(10) }),
+		LualineInactiveC({ fg = gray, bg = bg.darken(20) }),
 	}
 end)
 
