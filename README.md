@@ -22,3 +22,7 @@ are taken from [Tokyo Night](https://github.com/folke/tokyonight.nvim).
 ### Scala (with Treesitter)
 
 <img width="1728" alt="kauz-screenshot-1" src="https://github.com/buntec/kauz/assets/28229664/c417eb02-0731-4652-aa2e-6165d7f600aa">
+
+### Nix
+
+<img width="1728" alt="kauz-nix-screenshot-1" src="https://github.com/buntec/kauz/assets/28229664/e24d8de7-de5c-4382-b299-ee204e50efab">
