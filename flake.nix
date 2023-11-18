@@ -30,6 +30,16 @@
           src = ./extras/fish;
         };
 
+        kauz-kitty = pkgs.stdenv.mkDerivation {
+          inherit version;
+          pname = "kauz-kitty";
+          src = ./extras/kitty;
+          installPhase = ''
+            mkdir -p $out
+            cp kauz.conf $out/
+          '';
+        };
+
       };
 
     in {
