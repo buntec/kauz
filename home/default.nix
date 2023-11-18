@@ -1,10 +1,14 @@
 { lib, pkgs, config, ... }:
 with lib;
-let cfg = config.colorscheme.kauz;
+
+let
+
+  cfg = config.colorschemes.kauz;
+
 in {
 
-  options.colorscheme.kauz = {
-    enable = mkEnableOption "a colorscheme for kitty, fish, tmux and nvim";
+  options.colorschemes.kauz = {
+    enable = mkEnableOption "a colorscheme for neovim, kitty, fish and tmux";
   };
 
   config = mkIf cfg.enable {
