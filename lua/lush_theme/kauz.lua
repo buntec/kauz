@@ -49,23 +49,26 @@ local hsl = lush.hsluv
 -- Saturation (0 - 100) (0 is gray, 100 is colored)
 -- Lightness  (0 - 100) (0 is black, 100 is white)
 
-local saturation = 50
-local lightness = 75
-local alpha = 30
+-- local saturation = 50
+-- local lightness = 75
+-- local alpha = 30
+-- local c1 = hsl(40, saturation, lightness).rotate(alpha) -- yellow
+-- local c2 = hsl(160, saturation, lightness).rotate(alpha) -- blue
+-- local c3 = hsl(200, saturation, lightness).rotate(alpha) -- purple
+-- local c4 = hsl(280, saturation, lightness).rotate(alpha) -- pink
+-- local c5 = hsl(320, saturation, lightness).rotate(alpha) -- orange
 
-local c1 = hsl(40, saturation, lightness).rotate(alpha) -- yellow
-local c2 = hsl(160, saturation, lightness).rotate(alpha) -- blue
-local c3 = hsl(200, saturation, lightness).rotate(alpha) -- purple
-local c4 = hsl(280, saturation, lightness).rotate(alpha) -- pink
-local c5 = hsl(320, saturation, lightness).rotate(alpha) -- orange
-
-local normaltext = hsl(0, 0, lightness)
-local fg = normaltext
-local bg = c3.darken(83)
+local c1 = hsl(70, 50, 75)
+local c2 = hsl(190, 50, 75)
+local c3 = hsl(230, 50, 75)
+local c4 = hsl(310, 50, 75)
+local c5 = hsl(350, 50, 75)
 
 local gray = hsl(0, 0, 60)
-local black = hsl(0, 0, 15)
-local white = hsl(0, 0, 85)
+
+local normaltext = hsl(0, 0, 75)
+local fg = normaltext
+local bg = c3.darken(83)
 
 local selection = c3.darken(60)
 local visualmode = c3.darken(50)
@@ -80,13 +83,15 @@ local info = hsl(200, 50, 50)
 local hint = info
 
 -- terminal colors
+local terminal_br = 20 -- how much to brighten the 'br' terminal colors
+local black = hsl(0, 0, 10)
+local white = hsl(0, 0, 90)
 local red = hsl(0, 50, 50)
 local green = hsl(140, 50, 50)
 local yellow = hsl(40, 50, 50)
 local blue = hsl(220, 50, 50)
 local magenta = hsl(280, 50, 50)
 local cyan = hsl(180, 50, 50)
-local terminal_br = 20 -- how much to brighten the 'br' terminal colors
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
@@ -366,6 +371,16 @@ local theme = lush(function(injected_functions)
 		FishPagerCompletion({ fg = c3 }),
 		FishPagerDescription({ fg = c4 }),
 		FishPagerSelectedBackground({ fg = selection }),
+
+		FishPureDanger({ fg = error }),
+		FishPureDark({ fg = bg.darken(20) }),
+		FishPureInfo({ fg = info }),
+		FishPureLight({ fg = fg }),
+		FishPureMute({ fg = bg.lighten(20) }),
+		FishPureNormal({ fg = fg }),
+		FishPurePrimary({ fg = c2 }),
+		FishPureSuccess({ fg = c3 }),
+		FishPureWarning({ fg = warn }),
 
 		TmuxMode({ fg = c1, bg = bg }),
 		TmuxMessage({ fg = c1, bg = bg }),

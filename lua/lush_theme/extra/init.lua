@@ -71,6 +71,15 @@ function M.setup()
 			pager_completion = kauz.FishPagerCompletion.fg.hex,
 			pager_description = kauz.FishPagerDescription.fg.hex,
 			pager_selected_background = kauz.FishPagerSelectedBackground.fg.hex,
+			pure_danger = kauz.FishPureDanger.fg.hex,
+			pure_dark = kauz.FishPureDark.fg.hex,
+			pure_info = kauz.FishPureInfo.fg.hex,
+			pure_light = kauz.FishPureLight.fg.hex,
+			pure_mute = kauz.FishPureMute.fg.hex,
+			pure_normal = kauz.FishPureNormal.fg.hex,
+			pure_primary = kauz.FishPurePrimary.fg.hex,
+			pure_success = kauz.FishPureSuccess.fg.hex,
+			pure_warning = kauz.FishPureWarning.fg.hex,
 		}),
 		fname
 	)

@@ -3,15 +3,15 @@ local util = require("lush_theme.utils")
 local M = {}
 
 function M.generate(colors)
-  local fishColors = {}
-  for k, v in pairs(colors) do
-    if type(v) == "string" then
-      fishColors[k] = v:gsub("^#", "")
-    end
-  end
+	local fishColors = {}
+	for k, v in pairs(colors) do
+		if type(v) == "string" then
+			fishColors[k] = v:gsub("^#", "")
+		end
+	end
 
-  local fish = util.template(
-    [[
+	local fish = util.template(
+		[[
     # Kauz colorscheme
 
     # Syntax Highlighting Colors
@@ -36,11 +36,22 @@ function M.generate(colors)
     set -g fish_pager_color_completion ${pager_completion}
     set -g fish_pager_color_description ${pager_description}
     set -g fish_pager_color_selected_background --background=${pager_selected_background}
-  ]],
-    fishColors
-  )
 
-  return fish
+     Pure prompt
+    set -g pure_color_danger ${pure_danger}
+    set -g pure_color_dark ${pure_dark}
+    set -g pure_color_info ${pure_info}
+    set -g pure_color_light ${pure_light}
+    set -g pure_color_mute ${pure_mute}
+    set -g pure_color_normal ${pure_normal}
+    set -g pure_color_primary ${pure_primary}
+    set -g pure_color_success ${pure_success}
+    set -g pure_color_warning ${pure_warning}
+  ]],
+		fishColors
+	)
+
+	return fish
 end
 
 return M
