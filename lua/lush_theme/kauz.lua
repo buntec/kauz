@@ -378,7 +378,7 @@ local theme = lush(function(injected_functions)
 		FishPureLight({ fg = fg }),
 		FishPureMute({ fg = bg.lighten(20) }),
 		FishPureNormal({ fg = fg }),
-		FishPurePrimary({ fg = c2 }),
+		FishPurePrimary({ fg = c1 }),
 		FishPureSuccess({ fg = c3 }),
 		FishPureWarning({ fg = warn }),
 

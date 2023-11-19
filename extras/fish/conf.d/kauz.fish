@@ -23,14 +23,14 @@
     set -g fish_pager_color_description DDA8DA
     set -g fish_pager_color_selected_background --background=334A57
 
-     Pure prompt
+    # Pure prompt
     set -g pure_color_danger BC566E
     set -g pure_color_dark 121D23
     set -g pure_color_info 577E81
     set -g pure_color_light B9B9B9
     set -g pure_color_mute 334A57
     set -g pure_color_normal B9B9B9
-    set -g pure_color_primary 87C3C2
+    set -g pure_color_primary CAB882
     set -g pure_color_success 8DBFDD
     set -g pure_color_warning B06153
   
