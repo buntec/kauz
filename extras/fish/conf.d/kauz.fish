@@ -30,7 +30,7 @@
     set -g pure_color_light B9B9B9
     set -g pure_color_mute 334A57
     set -g pure_color_normal B9B9B9
-    set -g pure_color_primary CAB882
-    set -g pure_color_success 8DBFDD
+    set -g pure_color_primary 8DBFDD
+    set -g pure_color_success 87C3C2
     set -g pure_color_warning B06153
   

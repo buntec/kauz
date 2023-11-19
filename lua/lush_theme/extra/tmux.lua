@@ -1,10 +1,10 @@
-local util = require("lush_theme.utils")
+local util = require "lush_theme.utils"
 
 local M = {}
 
 function M.generate(colors)
-	local tmux = util.template(
-		[[
+  local tmux = util.template(
+    [[
 #!/usr/bin/env bash
 
 # Kauz colors for Tmux
@@ -26,9 +26,9 @@ setw -g window-status-activity-style "underscore,fg=${window_status_activity_fg}
 setw -g window-status-separator ""
 setw -g window-status-style "fg=${window_status_fg},bg=${window_status_bg}"
 ]],
-		colors
-	)
-	return tmux
+    colors
+  )
+  return tmux
 end
 
 return M

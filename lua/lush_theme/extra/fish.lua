@@ -1,17 +1,17 @@
-local util = require("lush_theme.utils")
+local util = require "lush_theme.utils"
 
 local M = {}
 
 function M.generate(colors)
-	local fishColors = {}
-	for k, v in pairs(colors) do
-		if type(v) == "string" then
-			fishColors[k] = v:gsub("^#", "")
-		end
-	end
+  local fishColors = {}
+  for k, v in pairs(colors) do
+    if type(v) == "string" then
+      fishColors[k] = v:gsub("^#", "")
+    end
+  end
 
-	local fish = util.template(
-		[[
+  local fish = util.template(
+    [[
     # Kauz colorscheme
 
     # Syntax Highlighting Colors
@@ -48,10 +48,10 @@ function M.generate(colors)
     set -g pure_color_success ${pure_success}
     set -g pure_color_warning ${pure_warning}
   ]],
-		fishColors
-	)
+    fishColors
+  )
 
-	return fish
+  return fish
 end
 
 return M

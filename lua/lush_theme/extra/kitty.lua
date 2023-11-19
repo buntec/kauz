@@ -1,10 +1,10 @@
-local util = require("lush_theme.utils")
+local util = require "lush_theme.utils"
 
 local M = {}
 
 function M.generate(colors)
-	local kitty = util.template(
-		[[
+  local kitty = util.template(
+    [[
 # vim:ft=kitty
 #: This is a template that can be used to create new kitty themes.
 #: Theme files should start with a metadata block consisting of
@@ -109,9 +109,9 @@ color14 ${cyan_bright}
 color7  ${white}
 color15 ${white_bright}
 ]],
-		colors
-	)
-	return kitty
+    colors
+  )
+  return kitty
 end
 
 return M
