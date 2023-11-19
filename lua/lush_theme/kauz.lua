@@ -76,22 +76,22 @@ local comment = c3.desaturate(50).darken(50)
 local linenr = gray.darken(50)
 local whitespace = linenr
 
-local error = hsl(0, 50, 50)
-local warn = hsl(20, 50, 50)
-local ok = hsl(140, 50, 50)
-local info = hsl(200, 50, 50)
+local error = hsl(0, 50, 60)
+local warn = hsl(20, 50, 60)
+local ok = hsl(140, 50, 60)
+local info = hsl(200, 50, 60)
 local hint = info
 
 -- terminal colors
-local terminal_br = 20 -- how much to brighten the 'br' terminal colors
-local black = hsl(0, 0, 10)
-local white = hsl(0, 0, 90)
-local red = hsl(0, 50, 50)
-local green = hsl(140, 50, 50)
-local yellow = hsl(40, 50, 50)
-local blue = hsl(220, 50, 50)
-local magenta = hsl(280, 50, 50)
-local cyan = hsl(180, 50, 50)
+local terminal_br = 10 -- how much to brighten the 'br' terminal colors
+local black = hsl(0, 0, 20)
+local white = hsl(0, 0, 80)
+local red = hsl(0, 50, 60)
+local green = hsl(140, 50, 60)
+local yellow = hsl(40, 50, 60)
+local blue = hsl(220, 50, 60)
+local magenta = hsl(280, 50, 60)
+local cyan = hsl(180, 50, 60)
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
