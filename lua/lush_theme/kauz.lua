@@ -66,10 +66,10 @@ local c5 = hsl(350, 50, 75)
 
 local gray = hsl(0, 0, 60)
 
-local normaltext = hsl(0, 0, 75)
-local fg = normaltext
+local fg = hsl(0, 0, 75)
 local bg = c3.darken(83)
 
+local cursorbg = c1.darken(50)
 local selection = c3.darken(60)
 local visualmode = c3.darken(50)
 local comment = c3.desaturate(50).darken(50)
@@ -111,11 +111,11 @@ local theme = lush(function(injected_functions)
     --
     -- ColorColumn    { }, -- Columns set with 'colorcolumn'
     -- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor { bg = c1, fg = normaltext }, -- Character under the cursor
+    Cursor { bg = cursorbg, fg = fg }, -- Character under the cursor
     CurSearch {}, -- Highlighting a search pattern under the cursor (see 'hlsearch')
-    lCursor {}, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
+    lCursor { bg = cursorbg, fg = fg }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM {}, -- Like Cursor, but used when in IME mode |CursorIM|
-    CursorColumn {}, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+    CursorColumn { bg = cursorbg, fg = fg }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine {}, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory { fg = c3 }, -- Directory names (and other special names in listings)
     -- DiffAdd        { }, -- Diff mode: Added line |diff.txt|
@@ -144,12 +144,12 @@ local theme = lush(function(injected_functions)
     -- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg { fg = c2 }, -- |more-prompt|
     NonText { fg = linenr }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    Normal { bg = bg, fg = normaltext }, -- Normal text
+    Normal { bg = bg, fg = fg }, -- Normal text
     -- NormalFloat    { }, -- Normal text in floating windows.
     -- FloatBorder    { }, -- Border of floating windows.
     -- FloatTitle     { }, -- Title of floating windows
     -- NormalNC       { }, -- normal text in non-current windows
-    Pmenu { fg = normaltext }, -- Popup menu: Normal item.
+    Pmenu { fg = fg }, -- Popup menu: Normal item.
     -- PmenuSel       { }, -- Popup menu: Selected item.
     -- PmenuKind      { }, -- Popup menu: Normal item "kind"
     -- PmenuKindSel   { }, -- Popup menu: Selected item "kind"
@@ -176,7 +176,7 @@ local theme = lush(function(injected_functions)
     WarningMsg { fg = warn }, -- Warning messages
     Whitespace { fg = whitespace }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     -- Winseparator   { }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
-    WildMenu { bg = c2 }, -- Current match in 'wildmenu' completion
+    WildMenu { bg = c2.darken(50) }, -- Current match in 'wildmenu' completion
     -- WinBar         { }, -- Window bar of current window
     -- WinBarNC       { }, -- Window bar of not-current windows
 
@@ -226,10 +226,10 @@ local theme = lush(function(injected_functions)
     -- SpecialComment { }, --   Special things inside a comment (e.g. '\n')
     -- Debug          { }, --   Debugging statements
 
-    -- Underlined     { gui = "underline" }, -- Text that stands out, HTML links
+    Underlined { gui = "underline" }, -- Text that stands out, HTML links
     -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
-    -- Error          { }, -- Any erroneous construct
-    Todo { bg = c2 }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Error { bg = error }, -- Any erroneous construct
+    Todo { bg = c2.darken(50) }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     -- These groups are for the native LSP client and diagnostic system. Some
     -- other LSP clients may use these groups, or use their own. Consult your
@@ -353,7 +353,7 @@ local theme = lush(function(injected_functions)
     KittyBorder { fg = c4.li(terminal_br), bg = gray },
     KittyUrl { fg = c5 },
 
-    FishNormal { fg = normaltext },
+    FishNormal { fg = fg },
     FishCommand { fg = c1 },
     FishKeyword { fg = c4 },
     FishQuote { fg = c1 },
