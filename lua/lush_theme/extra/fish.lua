@@ -38,6 +38,7 @@ function M.generate(colors)
     set -g fish_pager_color_selected_background --background=${pager_selected_background}
 
     # Pure prompt
+    set -g pure_color_prompt_on_success ${pure_prompt}
     set -g pure_color_danger ${pure_danger}
     set -g pure_color_dark ${pure_dark}
     set -g pure_color_info ${pure_info}

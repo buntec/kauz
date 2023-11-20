@@ -71,6 +71,7 @@ function M.setup()
       pager_completion = kauz.FishPagerCompletion.fg.hex,
       pager_description = kauz.FishPagerDescription.fg.hex,
       pager_selected_background = kauz.FishPagerSelectedBackground.fg.hex,
+      pure_prompt = kauz.FishPurePrompt.fg.hex,
       pure_danger = kauz.FishPureDanger.fg.hex,
       pure_dark = kauz.FishPureDark.fg.hex,
       pure_info = kauz.FishPureInfo.fg.hex,

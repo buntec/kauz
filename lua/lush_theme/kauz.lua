@@ -372,6 +372,7 @@ local theme = lush(function(injected_functions)
     FishPagerDescription { fg = c4 },
     FishPagerSelectedBackground { fg = selection },
 
+    FishPurePrompt { fg = c4 },
     FishPureDanger { fg = error },
     FishPureDark { fg = bg.darken(20) },
     FishPureInfo { fg = info },
