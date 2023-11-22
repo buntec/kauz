@@ -7,10 +7,27 @@ Includes matching themes for kitty, fish and tmux.
 
 ## Install
 
+### Nix
+
 Kauz is distributed as a nix flake exposing a [home-manager](https://github.com/nix-community/home-manager) module.
 
 - Add `overlays.default` to your list of `nixpkgs` overlays.
 - Import `homeModules.default` as a home-manager module and activate by setting `colorschemes.kauz.enable = true`.
+
+### Without Nix
+
+```lua
+-- lazy.nvim
+{
+  "buntec/kauz",
+  dependencies = { "rktjmp/lush.nvim" }
+}
+```
+
+```lua
+vim.cmd.colorscheme("kauz")
+```
+
 
 ## Acknowledgements:
 
