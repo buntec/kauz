@@ -49,15 +49,6 @@ local hsl = lush.hsluv
 -- Saturation (0 - 100) (0 is gray, 100 is colored)
 -- Lightness  (0 - 100) (0 is black, 100 is white)
 
--- local saturation = 50
--- local lightness = 75
--- local alpha = 30
--- local c1 = hsl(40, saturation, lightness).rotate(alpha) -- yellow
--- local c2 = hsl(160, saturation, lightness).rotate(alpha) -- blue
--- local c3 = hsl(200, saturation, lightness).rotate(alpha) -- purple
--- local c4 = hsl(280, saturation, lightness).rotate(alpha) -- pink
--- local c5 = hsl(320, saturation, lightness).rotate(alpha) -- orange
-
 local c1 = hsl(70, 50, 75)
 local c2 = hsl(190, 50, 75)
 local c3 = hsl(230, 50, 75)
@@ -69,12 +60,12 @@ local gray = hsl(0, 0, 60)
 local fg = hsl(0, 0, 75)
 local bg = c3.darken(83)
 
-local cursorbg = c1.darken(50)
-local selection = c3.darken(60)
-local visualmode = c3.darken(50)
-local comment = c3.desaturate(50).darken(50)
-local linenr = gray.darken(50)
-local whitespace = linenr
+local cursor_bg = c1.darken(50)
+local selection_bg = c3.darken(60)
+local visualmode_bg = c3.darken(60)
+local comment_fg = c3.desaturate(50).darken(50)
+local linenr_fg = gray.darken(50)
+local whitespace_fg = linenr_fg
 
 local error = hsl(0, 50, 60)
 local warn = hsl(20, 50, 60)
@@ -111,11 +102,11 @@ local theme = lush(function(injected_functions)
     --
     -- ColorColumn    { }, -- Columns set with 'colorcolumn'
     -- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor { bg = cursorbg, fg = fg }, -- Character under the cursor
+    Cursor { bg = cursor_bg, fg = fg }, -- Character under the cursor
     CurSearch {}, -- Highlighting a search pattern under the cursor (see 'hlsearch')
-    lCursor { bg = cursorbg, fg = fg }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
+    lCursor { bg = cursor_bg, fg = fg }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM {}, -- Like Cursor, but used when in IME mode |CursorIM|
-    CursorColumn { bg = cursorbg, fg = fg }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+    CursorColumn { bg = cursor_bg, fg = fg }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine {}, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory { fg = c3 }, -- Directory names (and other special names in listings)
     -- DiffAdd        { }, -- Diff mode: Added line |diff.txt|
@@ -132,25 +123,25 @@ local theme = lush(function(injected_functions)
     SignColumn {}, -- Column where |signs| are displayed
     -- IncSearch      { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     -- Substitute     { }, -- |:substitute| replacement text highlighting
-    LineNr { fg = linenr }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNr { fg = linenr_fg }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     -- LineNrAbove    { }, -- Line number for when the 'relativenumber' option is set, above the cursor line
     -- LineNrBelow    { }, -- Line number for when the 'relativenumber' option is set, below the cursor line
     -- CursorLineNr   { }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     -- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
     -- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
-    -- MatchParen     { }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen { bg = visualmode_bg }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     -- ModeMsg        { }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea { fg = c1 }, -- Area for messages and cmdline
     -- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg { fg = c2 }, -- |more-prompt|
-    NonText { fg = linenr }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    NonText { fg = linenr_fg }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal { bg = bg, fg = fg }, -- Normal text
     -- NormalFloat    { }, -- Normal text in floating windows.
     -- FloatBorder    { }, -- Border of floating windows.
     -- FloatTitle     { }, -- Title of floating windows
     -- NormalNC       { }, -- normal text in non-current windows
     Pmenu { fg = fg }, -- Popup menu: Normal item.
-    -- PmenuSel       { }, -- Popup menu: Selected item.
+    PmenuSel { fg = fg, bg = selection_bg }, -- Popup menu: Selected item.
     -- PmenuKind      { }, -- Popup menu: Normal item "kind"
     -- PmenuKindSel   { }, -- Popup menu: Selected item "kind"
     -- PmenuExtra     { }, -- Popup menu: Normal item "extra text"
@@ -159,7 +150,7 @@ local theme = lush(function(injected_functions)
     -- PmenuThumb     { }, -- Popup menu: Thumb of the scrollbar.
     -- Question       { }, -- |hit-enter| prompt and yes/no questions
     -- QuickFixLine   { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search { bg = selection }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
+    Search { bg = selection_bg }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
     -- SpecialKey     { }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
     -- SpellBad       { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     -- SpellCap       { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
@@ -171,10 +162,10 @@ local theme = lush(function(injected_functions)
     -- TabLineFill    { }, -- Tab pages line, where there are no labels
     -- TabLineSel     { }, -- Tab pages line, active tab page label
     Title { fg = c2 }, -- Titles for output from ":set all", ":autocmd" etc.
-    Visual { bg = visualmode }, -- Visual mode selection
+    Visual { bg = visualmode_bg }, -- Visual mode selection
     -- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg { fg = warn }, -- Warning messages
-    Whitespace { fg = whitespace }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
+    Whitespace { fg = whitespace_fg }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     -- Winseparator   { }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
     WildMenu { bg = c2.darken(50) }, -- Current match in 'wildmenu' completion
     -- WinBar         { }, -- Window bar of current window
@@ -188,7 +179,7 @@ local theme = lush(function(injected_functions)
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment { fg = comment, gui = "italic" }, -- Any comment
+    Comment { fg = comment_fg, gui = "italic" }, -- Any comment
 
     Constant { fg = c1 }, -- (*) Any constant
     String { fg = c1 }, --   A string constant: "this is a string"
@@ -295,7 +286,7 @@ local theme = lush(function(injected_functions)
     sym "@text.uri" { fg = c4 }, -- Underlined
     -- sym"@text.underline"    { }, -- Underlined
     sym "@text.todo" { bg = c2 }, -- Todo
-    sym "@comment" { fg = comment }, -- Comment
+    sym "@comment" { fg = comment_fg }, -- Comment
     -- sym"@punctuation"       { }, -- Delimiter
     -- sym"@constant"          { }, -- Constant
     -- sym"@constant.builtin"  { }, -- Special
@@ -361,16 +352,16 @@ local theme = lush(function(injected_functions)
     FishEnd { fg = c2 },
     FishError { fg = error },
     FishParam { fg = c3 },
-    FishComment { fg = comment },
-    FishSelection { fg = selection },
+    FishComment { fg = comment_fg },
+    FishSelection { fg = selection_bg },
     FishOperator { fg = c1 },
     FishEscape { fg = c4 },
-    FishAutosuggestion { fg = comment },
+    FishAutosuggestion { fg = comment_fg },
     FishPagerProgress { fg = c1 },
     FishPagerPrefix { fg = c2 },
     FishPagerCompletion { fg = c3 },
     FishPagerDescription { fg = c4 },
-    FishPagerSelectedBackground { fg = selection },
+    FishPagerSelectedBackground { fg = selection_bg },
 
     FishPurePrompt { fg = c4 },
     FishPureDanger { fg = error },
@@ -383,7 +374,7 @@ local theme = lush(function(injected_functions)
     FishPureSuccess { fg = c2 },
     FishPureWarning { fg = warn },
 
-    TmuxMode { fg = fg, bg = visualmode },
+    TmuxMode { fg = fg, bg = visualmode_bg },
     TmuxMessage { fg = c1, bg = bg },
     TmuxMessageCommand { fg = c2, bg = bg },
     TmuxPaneBorder { fg = fg },
@@ -421,8 +412,8 @@ local theme = lush(function(injected_functions)
     KauzMetaBlack { fg = black },
     KauzMetaGray { fg = gray },
     KauzMetaWhite { fg = white },
-    KauzMetaComment { fg = comment },
-    KauzMetaSelection { fg = selection },
+    KauzMetaComment { fg = comment_fg },
+    KauzMetaSelection { fg = selection_bg },
   }
 end)
 
