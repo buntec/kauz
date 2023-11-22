@@ -2,7 +2,7 @@
 
 # Kauz colors for Tmux
 
-set -g mode-style "fg=#CAB882,bg=#17232A"
+set -g mode-style "fg=#B9B9B9,bg=#425D6D"
 
 set -g message-style "fg=#CAB882,bg=#17232A"
 set -g message-command-style "fg=#87C3C2,bg=#17232A"

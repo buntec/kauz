@@ -383,7 +383,7 @@ local theme = lush(function(injected_functions)
     FishPureSuccess { fg = c2 },
     FishPureWarning { fg = warn },
 
-    TmuxMode { fg = c1, bg = bg },
+    TmuxMode { fg = fg, bg = visualmode },
     TmuxMessage { fg = c1, bg = bg },
     TmuxMessageCommand { fg = c2, bg = bg },
     TmuxPaneBorder { fg = fg },
