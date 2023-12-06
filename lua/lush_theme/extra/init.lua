@@ -19,6 +19,7 @@ function M.setup()
   local kitty = require "lush_theme.extra.kitty"
   local fish = require "lush_theme.extra.fish"
   local tmux = require "lush_theme.extra.tmux"
+  local meta = require "lush_theme.extra.meta"
   local fname = "kitty/kauz.conf"
   write(
     kitty.generate {
@@ -101,6 +102,20 @@ function M.setup()
       window_status_bg = kauz.TmuxWindowStatus.bg.hex,
       window_status_activity_fg = kauz.TmuxWindowStatusActivity.fg.hex,
       window_status_activity_bg = kauz.TmuxWindowStatusActivity.bg.hex,
+    },
+    fname
+  )
+  fname = "meta/meta.txt"
+  write(
+    meta.generate {
+      c1 = kauz.KauzMetaC1.fg.hex,
+      c2 = kauz.KauzMetaC2.fg.hex,
+      c3 = kauz.KauzMetaC3.fg.hex,
+      c4 = kauz.KauzMetaC4.fg.hex,
+      c5 = kauz.KauzMetaC5.fg.hex,
+      fg = kauz.KauzMetaFg.fg.hex,
+      bg = kauz.KauzMetaBg.fg.hex,
+      comment = kauz.KauzMetaComment.fg.hex,
     },
     fname
   )

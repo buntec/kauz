@@ -1,0 +1,8 @@
+c1 = #CAB882
+c2 = #87C3C2
+c3 = #8DBFDD
+c4 = #DDA8DA
+c5 = #DFABBB
+fg = #B9B9B9
+bg = #17232A
+comment = #4F5B63
