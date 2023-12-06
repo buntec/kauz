@@ -84,6 +84,12 @@ local blue = hsl(220, 50, 60)
 local magenta = hsl(280, 50, 60)
 local cyan = hsl(180, 50, 60)
 
+
+-- diff colors
+local git_add = ok
+local git_change = warn
+local git_delete = error
+
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
 ---@diagnostic disable: undefined-global
@@ -328,10 +334,17 @@ local theme = lush(function(injected_functions)
     --
     --
     -- GitSigns
-    GitSignsAdd { fg = ok }, -- diff mode: Added line |diff.txt|
-    GitSignsChange { fg = warn }, -- diff mode: Changed line |diff.txt|
-    GitSignsDelete { fg = error }, -- diff mode: Deleted line |diff.txt|   --
+    GitSignsAdd { fg = git_add }, -- diff mode: Added line |diff.txt|
+    GitSignsChange { fg = git_change }, -- diff mode: Changed line |diff.txt|
+    GitSignsDelete { fg = git_delete }, -- diff mode: Deleted line |diff.txt|   --
     --
+    -- Neogit
+    NeogitDiffAdd { bg = git_add.desaturate(60).darken(60), fg = git_add.lighten(10) },
+    NeogitDiffChange { bg = git_change.desaturate(60).darken(60), fg = git_change.lighten(10) },
+    NeogitDiffDelete { bg = git_delete.desaturate(60).darken(60), fg = git_delete.lighten(10) },
+    NeogitDiffAddHighlight { bg = git_add.desaturate(30).darken(30), fg = git_add.lighten(40) },
+    NeogitDiffChangeHighlight { bg = git_change.desaturate(30).darken(30), fg = git_change.lighten(40) },
+    NeogitDiffDeleteHighlight { bg = git_delete.desaturate(30).darken(30), fg = git_delete.lighten(40) },
     --
     KittyBlack { fg = black.li(terminal_br), bg = black },
     KittyRed { fg = red.li(terminal_br), bg = red },
