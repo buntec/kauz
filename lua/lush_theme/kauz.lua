@@ -330,13 +330,12 @@ local theme = lush(function(injected_functions)
     -- sym"@preproc"           { }, -- PreProc
     -- sym"@debug"             { }, -- Debug
     -- sym"@tag"               { }, -- Tag
-    --
-    --
+
     -- GitSigns
     GitSignsAdd { fg = git_add }, -- diff mode: Added line |diff.txt|
     GitSignsChange { fg = git_change }, -- diff mode: Changed line |diff.txt|
     GitSignsDelete { fg = git_delete }, -- diff mode: Deleted line |diff.txt|   --
-    --
+
     -- Neogit
     NeogitDiffAdd { bg = git_add.desaturate(60).darken(60), fg = git_add.lighten(10) },
     NeogitDiffChange { bg = git_change.desaturate(60).darken(60), fg = git_change.lighten(10) },
@@ -344,7 +343,14 @@ local theme = lush(function(injected_functions)
     NeogitDiffAddHighlight { bg = git_add.desaturate(30).darken(30), fg = git_add.lighten(40) },
     NeogitDiffChangeHighlight { bg = git_change.desaturate(30).darken(30), fg = git_change.lighten(40) },
     NeogitDiffDeleteHighlight { bg = git_delete.desaturate(30).darken(30), fg = git_delete.lighten(40) },
-    --
+
+    -- Telescope
+    TelescopeResultsDiffChange { bg = git_change.desaturate(60).darken(60), fg = git_change.lighten(10) },
+    TelescopeResultsDiffAdd { bg = git_add.desaturate(60).darken(60), fg = git_add.lighten(10) },
+    TelescopeResultsDiffDelete { bg = git_delete.desaturate(60).darken(60), fg = git_delete.lighten(10) },
+    --TelescopeResultsDiffUntracked  { },
+
+    -- Kitty
     KittyBlack { fg = black.li(terminal_br), bg = black },
     KittyRed { fg = red.li(terminal_br), bg = red },
     KittyGreen { fg = green.li(terminal_br), bg = green },
@@ -356,6 +362,7 @@ local theme = lush(function(injected_functions)
     KittyBorder { fg = c4.li(terminal_br), bg = gray },
     KittyUrl { fg = c5 },
 
+    -- Fish
     FishNormal { fg = fg },
     FishCommand { fg = c1 },
     FishKeyword { fg = c4 },
@@ -386,6 +393,7 @@ local theme = lush(function(injected_functions)
     FishPureSuccess { fg = c2 },
     FishPureWarning { fg = warn },
 
+    -- Tmux
     TmuxMode { fg = fg, bg = visualmode_bg },
     TmuxMessage { fg = c1, bg = bg },
     TmuxMessageCommand { fg = c2, bg = bg },
@@ -395,6 +403,7 @@ local theme = lush(function(injected_functions)
     TmuxWindowStatus { fg = c2, bg = bg },
     TmuxWindowStatusActivity { fg = c3, bg = bg },
 
+    -- Lualine
     LualineNormalA { fg = fg, bg = bg },
     LualineNormalB { fg = fg, bg = bg.darken(10) },
     LualineNormalC { fg = fg, bg = bg.darken(20) },
