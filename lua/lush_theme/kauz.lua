@@ -84,7 +84,6 @@ local blue = hsl(220, 50, 60)
 local magenta = hsl(280, 50, 60)
 local cyan = hsl(180, 50, 60)
 
-
 -- diff colors
 local git_add = ok
 local git_change = warn
@@ -113,11 +112,11 @@ local theme = lush(function(injected_functions)
     lCursor { bg = cursor_bg, fg = fg }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM {}, -- Like Cursor, but used when in IME mode |CursorIM|
     CursorColumn { bg = cursor_bg, fg = fg }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    CursorLine {}, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorLine { bg = bg.lighten(3) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory { fg = c3 }, -- Directory names (and other special names in listings)
-    -- DiffAdd        { }, -- Diff mode: Added line |diff.txt|
-    -- DiffChange     { }, -- Diff mode: Changed line |diff.txt|
-    -- DiffDelete     { }, -- Diff mode: Deleted line |diff.txt|
+    DiffAdd { bg = git_add.desaturate(60).darken(60), fg = git_add.lighten(10) }, -- Diff mode: Added line |diff.txt|
+    DiffChange { bg = git_change.desaturate(60).darken(60), fg = git_change.lighten(10) }, -- Diff mode: Changed line |diff.txt|
+    DiffDelete { bg = git_delete.desaturate(60).darken(60), fg = git_delete.lighten(10) }, -- Diff mode: Deleted line |diff.txt|
     -- DiffText       { }, -- Diff mode: Changed text within a changed line |diff.txt|
     -- EndOfBuffer    { }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     -- TermCursor     { }, -- Cursor in a focused terminal
@@ -132,7 +131,7 @@ local theme = lush(function(injected_functions)
     LineNr { fg = linenr_fg }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     -- LineNrAbove    { }, -- Line number for when the 'relativenumber' option is set, above the cursor line
     -- LineNrBelow    { }, -- Line number for when the 'relativenumber' option is set, below the cursor line
-    -- CursorLineNr   { }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    CursorLineNr { fg = fg }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     -- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
     -- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
     MatchParen { bg = visualmode_bg }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
