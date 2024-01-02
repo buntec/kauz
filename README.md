@@ -12,8 +12,14 @@ Includes matching themes for kitty, fish and tmux.
 Kauz is distributed as a nix flake exposing a [home-manager](https://github.com/nix-community/home-manager) module.
 
 - Add `overlays.default` to your list of `nixpkgs` overlays.
-- Import `homeModules.default` as a home-manager module and activate by setting `colorschemes.kauz.enable = true`.
-
+- Import `homeModules.default` as a home-manager module and activate the theme by enabling the corresponding option.
+For example, enable the theme for fish by setting: 
+```nix
+kauz.fish.enable = true;
+#kauz.kitty.enable = true;
+#kauz.neovim.enable = true;
+#kauz.tmux.enable = true;
+```
 ### Without Nix
 
 ```lua
