@@ -5,12 +5,6 @@ let
 
   cfg = config.kauz;
 
-  supported = [ "fish" "kitty" "neovim" "tmux" ];
-
-  capitalizeFirst = s:
-    lib.toUpper (builtins.substring 0 1 s)
-    + builtins.substring 1 (lib.stringLength s) s;
-
   isFish = cfg.fish.enable;
   isKitty = cfg.kitty.enable;
   isTmux = cfg.tmux.enable;
@@ -18,11 +12,13 @@ let
 
 in {
 
-  options.kauz = builtins.listToAttrs (map (s: {
-    name = s.enable;
-    value = mkEnableOption
-      "Whether to enable the colorscheme for ${capitalizeFirst s}";
-  }) supported);
+  options.kauz = {
+    fish.enable = mkEnableOption "Whether to enable the colorscheme for Fish";
+    kitty.enable = mkEnableOption "Whether to enable the colorscheme for Kitty";
+    tmux.enable = mkEnableOption "Whether to enable the colorscheme for Tmux";
+    neovim.enable =
+      mkEnableOption "Whether to enable the colorscheme for Neovim";
+  };
 
   config = mkIf isFish {
     programs.fish.plugins = [{
@@ -34,7 +30,7 @@ in {
       include ${pkgs.kauz-kitty}/kauz.conf
     '';
   } // mkIf isTmux {
-    programs.tmux = ''
+    programs.tmux.extraConfig = ''
       builtins.readFile "${pkgs.kauz-tmux}/kauz.tmux";
     '';
   } // mkIf isNeovim {
