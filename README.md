@@ -15,10 +15,10 @@ Kauz is distributed as a nix flake exposing a [home-manager](https://github.com/
 - Import `homeModules.default` as a home-manager module and activate the theme per tool by enabling the corresponding option.
 For example, enable the theme for fish by setting: 
 ```nix
-colorschemes.kauz.fish.enable = true;
-#colorschemes.kauz.kitty.enable = true;
-#colorschemes.kauz.neovim.enable = true;
-#colorschemes.kauz.tmux.enable = true;
+kauz.fish.enable = true;
+#kauz.kitty.enable = true;
+#kauz.neovim.enable = true;
+#kauz.tmux.enable = true;
 ```
 ### Without Nix
 

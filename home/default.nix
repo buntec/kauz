@@ -3,38 +3,39 @@ with lib;
 
 let
 
-  cfg = config.colorschemes.kauz;
+  cfg = config.kauz;
   supported = [ "fish" "kitty" "neovim" "tmux" ];
-  enabled = builtins.filter (s: cfg.${s}.enable) supported;
+  allEnabled = builtins.filter (s: cfg.${s}.enable) supported;
   capitalizeFirst = s:
     lib.toUpper (builtins.substring 0 1 s)
     + builtins.substring 1 (lib.stringLength s) s;
 
 in {
 
-  options.colorschemes.kauz = builtins.listToAttrs (builtins.map (s: {
+  options.kauz = builtins.listToAttrs (builtins.map (s: {
     name = s.enable;
-    value = mkEnableOption "Whether to enable the colorscheme for ${capitalizeFirst s}";
+    value = mkEnableOption
+      "Whether to enable the colorscheme for ${capitalizeFirst s}";
   }) supported);
 
-  config = builtins.listToAttrs (builtins.map (isEnabled: {
-    name = "programs.${isEnabled}";
+  config = builtins.listToAttrs (builtins.map (enabled: {
+    name = "programs.${enabled}";
     value =
 
-      if isEnabled == "kitty" then {
+      if enabled == "kitty" then {
         extraConfig = ''
           include ${pkgs.kauz-kitty}/kauz.conf
         '';
       }
 
-      else if isEnabled == "tmux" then {
+      else if enabled == "tmux" then {
         extraConfig = ''
           builtins.readFile "${pkgs.kauz-tmux}/kauz.tmux";
         '';
 
       }
 
-      else if isEnabled == "fish" then {
+      else if enabled == "fish" then {
         plugins = [{
           name = "kauz-fish";
           inherit (pkgs.kauz-fish) src;
@@ -42,7 +43,7 @@ in {
 
       }
 
-      else if isEnabled == "neovim" then {
+      else if enabled == "neovim" then {
         plugins = [ pkgs.kauz-nvim ];
         extraLuaConfig = ''
           vim.cmd.colorscheme("kauz");
@@ -52,6 +53,6 @@ in {
       else
         { }; # should never happen
 
-  }) enabled);
+  }) allEnabled);
 }
 
