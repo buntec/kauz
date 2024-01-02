@@ -14,7 +14,7 @@ in {
 
   options.colorschemes.kauz = builtins.listToAttrs (builtins.map (s: {
     name = s.enable;
-    value = mkEnableOption "${capitalizeFirst s} Kauz integration";
+    value = mkEnableOption "Whether to enable the colorscheme for ${capitalizeFirst s}";
   }) supported);
 
   config = builins.listToAttrs (builtins.map (isEnabled: {
