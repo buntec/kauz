@@ -33,13 +33,11 @@ in {
       include ${pkgs.kauz-kitty}/kauz.conf
     '';
   } // mkIf isTmux {
-    programs.tmux.extraConfig = ''
-      builtins.readFile "${pkgs.kauz-tmux}/kauz.tmux";
-    '';
+    programs.tmux.extraConfig = builtins.readFile "${pkgs.kauz-tmux}/kauz.tmux";
   } // mkIf isNeovim {
     programs.neovim.plugins = [ pkgs.kauz-nvim ];
     programs.neovim.extraLuaConfig = ''
-      vim.cmd.colorscheme("kauz");
+      vim.cmd.colorscheme("kauz")
     '';
   };
 
