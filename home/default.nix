@@ -18,7 +18,7 @@ in {
   }) supported);
 
   config = builins.listToAttrs (builtins.map (isEnabled: {
-    name = "programs.${enabled}";
+    name = "programs.${isEnabled}";
     value =
 
       if isEnabled == "kitty" then {
