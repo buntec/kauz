@@ -4,47 +4,55 @@ with lib;
 let
 
   cfg = config.colorschemes.kauz;
-  isFish = cfg.fish.enable;
-  isKitty = cfg.kitty.enable;
-  isTmux = cfg.tmux.enable;
-  isNeovim = cfg.neovim.enable;
+  tools = [ "kitty" "tmux" "fish" "neovim" ];
+  isEnabled = tool: cfg.${tool}.enable;
+  enabledTools = builtins.filter isEnabled tools;
+  capitalizeFirst = s:
+    lib.toUpper (builtins.substring 0 1 s)
+    + builtins.substring 1 (lib.stringLength s) s;
 
 in {
 
-  options.colorschemes.kauz = {
-    # fish
-    fish.enable = mkEnableOption "fish colorscheme integration";
+  options.colorschemes.kauz = builtins.listToAttrs (builtins.map (tool: {
+    name = tool.enable;
+    value = mkEnableOption "${capitalizeFirst tool} Kauz integration";
+  }) tools);
 
-    # kitty 
-    kitty.enable = mkEnableOption "tmux colorscheme integration";
+  config = builins.listToAttrs (builtins.map (enabled: {
+    name = "programs.${enabled}";
+    value =
 
-    # tmux 
-    tmux.enable = mkEnableOption "tmux colorscheme integration";
+      if enabled == "kitty" then {
+        extraConfig = ''
+          include ${pkgs.kauz-kitty}/kauz.conf
+        '';
+      }
 
-    #neovim
-    neovim.enable = mkEnableOption "neovim colorscheme integration";
-  };
+      else if enabled == "tmux" then {
+        extraConfig = ''
+          builtins.readFile "${pkgs.kauz-tmux}/kauz.tmux";
+        '';
 
-  config = mkIf isKitty {
+      }
 
-    programs.kitty.extraConfig = ''
-      include ${pkgs.kauz-kitty}/kauz.conf
-    '';
-  } // mkIf isTmux {
-    programs.tmux.extraConfig = builtins.readFile "${pkgs.kauz-tmux}/kauz.tmux";
-  } // mkIf isFish {
-    programs.fish.plugins = [{
-      name = "kauz-fish";
-      inherit (pkgs.kauz-fish) src;
-    }];
-  } // mkIf isNeovim {
+      else if enabled == "fish" then {
+        plugins = [{
+          name = "kauz-fish";
+          inherit (pkgs.kauz-fish) src;
+        }];
 
-    programs.neovim.plugins = [ pkgs.kauz-nvim ];
+      }
 
-    programs.neovim.extraLuaConfig = ''
-      vim.cmd.colorscheme("kauz")
-    '';
-  };
+      else if enabled == "neovim" then {
+        plugins = [ pkgs.kauz-nvim ];
+        extraLuaConfig = ''
+          vim.cmd.colorscheme("kauz");
+        '';
+      }
 
+      else
+        { }; # should never happen
+
+  }) enabledTools);
 }
 
