@@ -13,11 +13,14 @@ let
 in {
 
   options.kauz = {
-    fish.enable = mkEnableOption "Whether to enable the colorscheme for Fish";
-    kitty.enable = mkEnableOption "Whether to enable the colorscheme for Kitty";
-    tmux.enable = mkEnableOption "Whether to enable the colorscheme for Tmux";
+    fish.enable =
+      mkEnableOption "Whether to enable the Kauz colorscheme for Fish";
+    kitty.enable =
+      mkEnableOption "Whether to enable the Kauz colorscheme for Kitty";
+    tmux.enable =
+      mkEnableOption "Whether to enable the Kauz colorscheme for Tmux";
     neovim.enable =
-      mkEnableOption "Whether to enable the colorscheme for Neovim";
+      mkEnableOption "Whether to enable the Kauz colorscheme for Neovim";
   };
 
   config = mkIf isFish {
