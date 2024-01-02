@@ -17,7 +17,7 @@ in {
     value = mkEnableOption "Whether to enable the colorscheme for ${capitalizeFirst s}";
   }) supported);
 
-  config = builins.listToAttrs (builtins.map (isEnabled: {
+  config = builtins.listToAttrs (builtins.map (isEnabled: {
     name = "programs.${isEnabled}";
     value =
 
