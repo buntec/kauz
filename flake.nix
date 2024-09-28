@@ -26,7 +26,13 @@
         kauz-fish = pkgs.fishPlugins.buildFishPlugin {
           inherit version;
           pname = "kauz-fish";
-          src = ./extras/fish;
+          src = ./extras/fish/kauz;
+        };
+
+        kauz-fish-light = pkgs.fishPlugins.buildFishPlugin {
+          inherit version;
+          pname = "kauz-fish";
+          src = ./extras/fish/kauz-light;
         };
 
         kauz-kitty = pkgs.stdenv.mkDerivation {
@@ -36,6 +42,7 @@
           installPhase = ''
             mkdir -p $out
             cp kauz.conf $out/
+            cp kauz-light.conf $out/
           '';
         };
 
@@ -46,6 +53,7 @@
           installPhase = ''
             mkdir -p $out
             cp kauz.tmux $out/
+            cp kauz-light.tmux $out/
           '';
         };
 
