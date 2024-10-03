@@ -14,13 +14,24 @@ function M.write_file(file, contents)
   fd:close()
 end
 
-function M.setup()
-  local kauz = require "lush_theme.kauz"
+function M.setup(light)
+  local kauz
+  if light then
+    kauz = require "lush_theme.kauz_light"
+  else
+    kauz = require "lush_theme.kauz"
+  end
+
   local kitty = require "lush_theme.extra.kitty"
   local fish = require "lush_theme.extra.fish"
   local tmux = require "lush_theme.extra.tmux"
   local meta = require "lush_theme.extra.meta"
+
   local fname = "kitty/kauz.conf"
+  if light then
+    fname = "kitty/kauz-light.conf"
+  end
+
   write(
     kitty.generate {
       foreground = kauz.Normal.fg.hex,
@@ -51,7 +62,12 @@ function M.setup()
     },
     fname
   )
-  fname = "fish/conf.d/kauz.fish"
+
+  fname = "fish/kauz/conf.d/kauz.fish"
+  if light then
+    fname = "fish/kauz-light/conf.d/kauz-light.fish"
+  end
+
   write(
     fish.generate {
       normal = kauz.FishNormal.fg.hex,
@@ -85,7 +101,12 @@ function M.setup()
     },
     fname
   )
+
   fname = "tmux/kauz.tmux"
+  if light then
+    fname = "tmux/kauz-light.tmux"
+  end
+
   write(
     tmux.generate {
       mode_fg = kauz.TmuxMode.fg.hex,
@@ -105,7 +126,12 @@ function M.setup()
     },
     fname
   )
+
   fname = "meta/meta.txt"
+  if light then
+    fname = "meta/meta-light.txt"
+  end
+
   write(
     meta.generate {
       c1 = kauz.KauzMetaC1.fg.hex,
