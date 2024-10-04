@@ -321,7 +321,7 @@ local theme = lush(function(injected_functions)
     -- sym"@repeat"            { }, -- Repeat
     -- sym"@label"             { }, -- Label
     sym "@operator" { fg = c4 }, -- Operator
-    sym "@keyword" { fg = c4, gui = "italic" }, -- Keyword
+    sym "@keyword" { fg = c2, gui = "italic" }, -- Keyword
     -- sym"@exception"         { }, -- Exception
     sym "@variable" { fg = c1 }, -- Identifier
     sym "@type" { fg = c3 }, -- Type
