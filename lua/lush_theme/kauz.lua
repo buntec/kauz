@@ -74,7 +74,7 @@ local info = hsl(200, 50, 60)
 local hint = info
 
 -- terminal colors
-local terminal_br = 10 -- how much to brighten the 'br' terminal colors
+local terminal_br = 20 -- how much to brighten the 'br' terminal colors
 local black = hsl(0, 0, 20)
 local white = hsl(0, 0, 80)
 local red = hsl(0, 50, 60)
@@ -351,15 +351,24 @@ local theme = lush(function(injected_functions)
     --TelescopeResultsDiffUntracked  { },
 
     -- Kitty
-    KittyBlack { fg = black.li(terminal_br), bg = black },
-    KittyRed { fg = red.li(terminal_br), bg = red },
-    KittyGreen { fg = green.li(terminal_br), bg = green },
-    KittyYellow { fg = yellow.li(terminal_br), bg = yellow },
-    KittyBlue { fg = blue.li(terminal_br), bg = blue },
-    KittyMagenta { fg = magenta.li(terminal_br), bg = magenta },
-    KittyCyan { fg = cyan.li(terminal_br), bg = cyan },
-    KittyWhite { fg = white.li(terminal_br), bg = white },
-    KittyBorder { fg = c4.li(terminal_br), bg = gray },
+    KittyBlack { fg = black },
+    KittyBlackBright { fg = black.li(terminal_br) },
+    KittyRed { fg = red },
+    KittyRedBright { fg = red.li(terminal_br) },
+    KittyGreen { fg = green },
+    KittyGreenBright { fg = green.li(terminal_br) },
+    KittyYellow { fg = yellow },
+    KittyYellowBright { fg = yellow.li(terminal_br) },
+    KittyBlue { fg = blue },
+    KittyBlueBright { fg = blue.li(terminal_br) },
+    KittyMagenta { fg = magenta },
+    KittyMagentaBright { fg = magenta.li(terminal_br) },
+    KittyCyan { fg = cyan },
+    KittyCyanBright { fg = cyan.li(terminal_br) },
+    KittyWhite { fg = white },
+    KittyWhiteBright { fg = white.li(terminal_br) },
+    KittyBorderActive { fg = c4 },
+    KittyBorderInactive { fg = c4.desaturate(90) },
     KittyUrl { fg = c5 },
 
     -- Fish
