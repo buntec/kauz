@@ -45,7 +45,10 @@ are taken from the gorgeous [Tokyo Night](https://github.com/folke/tokyonight.nv
 ### Scala
 
 <img width="1728" alt="kauz-screenshot-1" src="https://github.com/buntec/kauz/assets/28229664/c417eb02-0731-4652-aa2e-6165d7f600aa">
+<img width="1840" alt="Screenshot 2024-10-04 at 17 16 15" src="https://github.com/user-attachments/assets/56ba3e7c-6c79-4649-938e-2eb48fd9b8d1">
+
 
 ### Nix
 
 <img width="1728" alt="kauz-nix-screenshot-1" src="https://github.com/buntec/kauz/assets/28229664/e24d8de7-de5c-4382-b299-ee204e50efab">
+<img width="1840" alt="Screenshot 2024-10-04 at 17 21 42" src="https://github.com/user-attachments/assets/0fa604b9-6f8b-451f-a5e4-10a92e4506ec">
