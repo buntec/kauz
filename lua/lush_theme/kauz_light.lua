@@ -110,12 +110,12 @@ local theme = lush(function(injected_functions)
     --
     ColorColumn {}, -- Columns set with 'colorcolumn'
     -- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor { bg = c1, fg = fg.lighten(50) }, -- Character under the cursor
+    Cursor { bg = c1.lighten(10), fg = fg.lighten(80) }, -- Character under the cursor
     -- CurSearch {}, -- Highlighting a search pattern under the cursor (see 'hlsearch')
     -- lCursor { bg = bg, fg = fg }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     -- CursorIM {}, -- Like Cursor, but used when in IME mode |CursorIM|
-    CursorColumn { bg = bg, fg = fg }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    CursorLine { bg = bg.lighten(3) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorColumn { bg = c4.lighten(85) }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+    CursorLine { bg = c4.lighten(85) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory { fg = c3 }, -- Directory names (and other special names in listings)
     DiffAdd { bg = git_add.desaturate(60).lighten(60), fg = git_add.lighten(10) }, -- Diff mode: Added line |diff.txt|
     DiffChange { bg = git_change.desaturate(60).li(60), fg = git_change.lighten(10) }, -- Diff mode: Changed line |diff.txt|
@@ -137,7 +137,7 @@ local theme = lush(function(injected_functions)
     CursorLineNr { fg = fg }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     -- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
     -- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
-    MatchParen { bg = visualmode_bg }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen { fg = c1 }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     -- ModeMsg        { }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea { fg = c1 }, -- Area for messages and cmdline
     MsgSeparator {}, -- Separator for scrolled messages, `msgsep` flag of 'display'
