@@ -408,7 +408,8 @@ local theme = lush(function(injected_functions)
     TmuxMessageCommand { fg = c2, bg = bg },
     TmuxPaneBorder { fg = fg },
     TmuxPaneActiveBorder { fg = c3 },
-    TmuxStatus { fg = c4, bg = bg.darken(20) },
+    TmuxStatusLeft { fg = c4, bg = bg.darken(20) },
+    TmuxStatusRight { fg = c3, bg = bg.darken(20) },
     TmuxWindowStatus { fg = c2, bg = bg },
     TmuxWindowStatusActivity { fg = c3, bg = bg },
 
