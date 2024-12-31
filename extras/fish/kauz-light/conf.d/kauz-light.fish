@@ -10,8 +10,8 @@
     set -g fish_color_error D17589
     set -g fish_color_param 547B7B
     set -g fish_color_comment BCB8AF
-    set -g fish_color_selection --background=A1E6E5
-    set -g fish_color_search_match --background=A1E6E5
+    set -g fish_color_selection --background=B4F4F2
+    set -g fish_color_search_match --background=B4F4F2
     set -g fish_color_operator 807450
     set -g fish_color_escape 57798D
     set -g fish_color_autosuggestion BCB8AF
@@ -21,7 +21,7 @@
     set -g fish_pager_color_prefix A35A9F
     set -g fish_pager_color_completion 547B7B
     set -g fish_pager_color_description 57798D
-    set -g fish_pager_color_selected_background --background=A1E6E5
+    set -g fish_pager_color_selected_background --background=B4F4F2
 
     # Pure prompt
     set -g pure_color_prompt_on_success B4557A

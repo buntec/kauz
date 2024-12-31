@@ -60,9 +60,9 @@ local c5 = hsl(350, 50, 75).darken(c_darken).saturate(c_sat)
 local fg = c1
 local bg = c2.lighten(99)
 
-local selection_bg = c3.lighten(75)
-local visualmode_bg = c4.lighten(75)
-local insertmode_bg = c1.lighten(75)
+local selection_bg = c3.lighten(85)
+local visualmode_bg = c1.lighten(85)
+local insertmode_bg = c1.lighten(85)
 local comment_fg = c1.desaturate(80).li(50)
 local linenr_fg = c4.desaturate(80).li(50)
 local whitespace_fg = linenr_fg.li(90).desaturate(50)
@@ -93,14 +93,15 @@ local git_change = warn
 local git_delete = error
 
 -- tmux
-local tmux_status_bg = c4.li(85)
+local tmux_status_bg = c4.li(80)
 local tmux_message_bg = c1.li(85)
-local tmux_active_border = c5.li(75)
-local tmux_border = tmux_active_border.desaturate(100)
-local tmux_mode_bg = c4.lighten(85)
+local tmux_active_border = c3.li(50)
+local tmux_border = tmux_active_border.lighten(50).desaturate(100)
+local tmux_mode_bg = c2.lighten(85)
 
 -- snacks
-local snacks_indent = c3.li(75)
+local snacks_indent_scope = c5.li(75)
+local snacks_indent = snacks_indent_scope.li(50).de(100)
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
@@ -125,7 +126,7 @@ local theme = lush(function(injected_functions)
     -- lCursor { bg = bg, fg = fg }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     -- CursorIM {}, -- Like Cursor, but used when in IME mode |CursorIM|
     CursorColumn { bg = c4.lighten(85) }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    CursorLine { bg = c4.lighten(85) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorLine { bg = c4.lighten(95) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory { fg = c3 }, -- Directory names (and other special names in listings)
     DiffAdd { bg = git_add.desaturate(60).lighten(60), fg = git_add.lighten(10) }, -- Diff mode: Added line |diff.txt|
     DiffChange { bg = git_change.desaturate(60).li(60), fg = git_change.lighten(10) }, -- Diff mode: Changed line |diff.txt|
@@ -363,8 +364,8 @@ local theme = lush(function(injected_functions)
     TelescopeResultsDiffDelete { bg = git_delete.desaturate(60).lighten(60), fg = git_delete.darken(10) },
     --TelescopeResultsDiffUntracked  { },
 
-    SnacksIndent { bg = bg, fg = snacks_indent.de(100) },
-    SnacksIndentScope { bg = bg, fg = snacks_indent },
+    SnacksIndent { bg = bg, fg = snacks_indent },
+    SnacksIndentScope { bg = bg, fg = snacks_indent_scope },
 
     -- Kitty
     KittyBlack { fg = black },
