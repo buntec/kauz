@@ -92,6 +92,13 @@ local git_add = ok
 local git_change = warn
 local git_delete = error
 
+-- tmux
+local tmux_status_bg = c3.da(75)
+local tmux_message_bg = c1.da(75)
+local tmux_active_border = c2.da(25)
+local tmux_border = tmux_active_border.desaturate(100).darken(50)
+local tmux_mode_bg = c4.da(85)
+
 -- snacks
 local snacks_indent = c5.darken(25)
 
@@ -356,7 +363,7 @@ local theme = lush(function(injected_functions)
     TelescopeResultsDiffDelete { bg = git_delete.desaturate(60).darken(60), fg = git_delete.lighten(10) },
     --TelescopeResultsDiffUntracked  { },
 
-    SnacksIndent { bg = bg, fg = snacks_indent.desaturate(100) },
+    SnacksIndent { bg = bg, fg = snacks_indent.desaturate(100).darken(50) },
     SnacksIndentScope { bg = bg, fg = snacks_indent },
 
     -- Kitty
@@ -412,16 +419,16 @@ local theme = lush(function(injected_functions)
     FishPureWarning { fg = warn },
 
     -- Tmux
-    TmuxMode { fg = fg, bg = visualmode_bg },
-    TmuxMessage { fg = c1, bg = bg },
-    TmuxMessageCommand { fg = c2, bg = bg },
-    TmuxPaneBorder { fg = fg },
-    TmuxPaneActiveBorder { fg = c3 },
-    TmuxStatus { fg = c1, bg = bg.darken(20) },
-    TmuxStatusLeft { fg = c4, bg = bg.darken(20) },
-    TmuxStatusRight { fg = c3, bg = bg.darken(20) },
-    TmuxWindowStatus { fg = c2, bg = bg },
-    TmuxWindowStatusActivity { fg = c3, bg = bg },
+    TmuxMode { fg = fg, bg = tmux_mode_bg },
+    TmuxMessage { fg = c1, bg = tmux_message_bg },
+    TmuxMessageCommand { fg = c2, bg = tmux_message_bg },
+    TmuxPaneBorder { fg = tmux_border, bg = bg },
+    TmuxPaneActiveBorder { fg = tmux_active_border, bg = bg },
+    TmuxStatus { fg = c1, bg = tmux_status_bg },
+    TmuxStatusLeft { fg = c3, bg = tmux_status_bg },
+    TmuxStatusRight { fg = c3, bg = tmux_status_bg },
+    TmuxWindowStatus { fg = c2, bg = tmux_status_bg },
+    TmuxWindowStatusActivity { fg = c3, bg = tmux_status_bg },
 
     -- Lualine
     LualineNormalA { fg = fg, bg = bg.li(15) },
