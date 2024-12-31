@@ -2,36 +2,36 @@
 
     # Syntax Highlighting Colors
     set -g fish_color_normal B9B9B9
-    set -g fish_color_command CAB882
-    set -g fish_color_keyword DDA8DA
-    set -g fish_color_quote CAB882
-    set -g fish_color_redirection DFABBB
-    set -g fish_color_end 87C3C2
+    set -g fish_color_command E9D38E
+    set -g fish_color_keyword ECCAEA
+    set -g fish_color_quote E9D38E
+    set -g fish_color_redirection EDCCD6
+    set -g fish_color_end 95E2E0
     set -g fish_color_error D17589
-    set -g fish_color_param 8DBFDD
-    set -g fish_color_comment 4F5B63
-    set -g fish_color_selection --background=334A57
-    set -g fish_color_search_match --background=334A57
-    set -g fish_color_operator CAB882
-    set -g fish_color_escape DDA8DA
-    set -g fish_color_autosuggestion 4F5B63
+    set -g fish_color_param BBD9EC
+    set -g fish_color_comment 586872
+    set -g fish_color_selection --background=385463
+    set -g fish_color_search_match --background=385463
+    set -g fish_color_operator E9D38E
+    set -g fish_color_escape ECCAEA
+    set -g fish_color_autosuggestion 586872
 
     # Completion Pager Colors
-    set -g fish_pager_color_progress CAB882
-    set -g fish_pager_color_prefix 87C3C2
-    set -g fish_pager_color_completion 8DBFDD
-    set -g fish_pager_color_description DDA8DA
-    set -g fish_pager_color_selected_background --background=334A57
+    set -g fish_pager_color_progress E9D38E
+    set -g fish_pager_color_prefix 95E2E0
+    set -g fish_pager_color_completion BBD9EC
+    set -g fish_pager_color_description ECCAEA
+    set -g fish_pager_color_selected_background --background=385463
 
     # Pure prompt
-    set -g pure_color_prompt_on_success DDA8DA
+    set -g pure_color_prompt_on_success ECCAEA
     set -g pure_color_danger D17589
-    set -g pure_color_dark 121D23
+    set -g pure_color_dark 111D24
     set -g pure_color_info 6A999D
     set -g pure_color_light B9B9B9
-    set -g pure_color_mute 334A57
+    set -g pure_color_mute 314A58
     set -g pure_color_normal B9B9B9
-    set -g pure_color_primary 8DBFDD
-    set -g pure_color_success 87C3C2
+    set -g pure_color_primary BBD9EC
+    set -g pure_color_success 95E2E0
     set -g pure_color_warning D47766
   

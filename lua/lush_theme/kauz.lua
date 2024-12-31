@@ -49,16 +49,19 @@ local hsl = lush.hsluv
 -- Saturation (0 - 100) (0 is gray, 100 is colored)
 -- Lightness  (0 - 100) (0 is black, 100 is white)
 
-local c1 = hsl(70, 50, 75)
-local c2 = hsl(190, 50, 75)
-local c3 = hsl(230, 50, 75)
-local c4 = hsl(310, 50, 75)
-local c5 = hsl(350, 50, 75)
+local saturation = 55
+local lightness = 85
+
+local c1 = hsl(70, saturation, lightness)
+local c2 = hsl(190, saturation, lightness)
+local c3 = hsl(230, saturation, lightness)
+local c4 = hsl(310, saturation, lightness)
+local c5 = hsl(350, saturation, lightness)
 
 local gray = hsl(0, 0, 60)
 
 local fg = hsl(0, 0, 75)
-local bg = c3.darken(83)
+local bg = c3.darken(85)
 
 local cursor_bg = c1.darken(50)
 local selection_bg = c3.darken(60)
@@ -88,6 +91,9 @@ local cyan = hsl(180, 50, 60)
 local git_add = ok
 local git_change = warn
 local git_delete = error
+
+-- snacks
+local snacks_indent = c5.darken(25)
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
@@ -349,6 +355,9 @@ local theme = lush(function(injected_functions)
     TelescopeResultsDiffAdd { bg = git_add.desaturate(60).darken(60), fg = git_add.lighten(10) },
     TelescopeResultsDiffDelete { bg = git_delete.desaturate(60).darken(60), fg = git_delete.lighten(10) },
     --TelescopeResultsDiffUntracked  { },
+
+    SnacksIndent { bg = bg, fg = snacks_indent.desaturate(100) },
+    SnacksIndentScope { bg = bg, fg = snacks_indent },
 
     -- Kitty
     KittyBlack { fg = black },
