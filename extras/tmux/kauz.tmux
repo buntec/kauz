@@ -2,10 +2,10 @@
 
 # kauz colors for tmux
 
-set -g mode-style fg=#b9b9b9,bg=#341733
+set -g mode-style fg=#b9b9b9,bg=#4f462c
 
-set -g message-style fg=#e9d38e,bg=#39321e
-set -g message-command-style fg=#95e2e0,bg=#39321e
+set -g message-style fg=#e9d38e,bg=#4c244a
+set -g message-command-style fg=#95e2e0,bg=#4c244a
 
 set -g pane-border-style fg=#4b4b4b
 set -g pane-active-border-style fg=#6ca5a4

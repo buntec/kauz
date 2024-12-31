@@ -94,10 +94,10 @@ local git_delete = error
 
 -- tmux
 local tmux_status_bg = c3.da(75)
-local tmux_message_bg = c1.da(75)
+local tmux_message_bg = c4.da(75)
 local tmux_active_border = c2.da(25)
 local tmux_border = tmux_active_border.desaturate(100).darken(50)
-local tmux_mode_bg = c4.da(85)
+local tmux_mode_bg = c1.da(65)
 
 -- snacks
 local snacks_indent = c5.darken(25)
