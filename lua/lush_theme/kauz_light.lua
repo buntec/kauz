@@ -93,7 +93,11 @@ local git_change = warn
 local git_delete = error
 
 -- tmux
-local tmux_status_bg = c4.li(75)
+local tmux_status_bg = c4.li(85)
+local tmux_message_bg = c1.li(85)
+local tmux_active_border = c5.li(25)
+local tmux_border = tmux_active_border.desaturate(100)
+local tmux_mode_bg = c4.lighten(85)
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
@@ -409,15 +413,15 @@ local theme = lush(function(injected_functions)
     FishPureWarning { fg = warn },
 
     -- Tmux
-    TmuxMode { fg = fg, bg = visualmode_bg },
-    TmuxMessage { fg = c1, bg = bg },
-    TmuxMessageCommand { fg = c5, bg = bg.darken(10) },
-    TmuxPaneBorder { fg = fg, bg = c1.li(75) },
-    TmuxPaneActiveBorder { fg = c2, bg = tmux_status_bg },
+    TmuxMode { fg = fg, bg = tmux_mode_bg },
+    TmuxMessage { fg = fg, bg = tmux_message_bg },
+    TmuxMessageCommand { fg = c5, bg = tmux_message_bg },
+    TmuxPaneBorder { fg = tmux_border, bg = bg },
+    TmuxPaneActiveBorder { fg = tmux_active_border, bg = bg },
     TmuxStatus { fg = c4, bg = tmux_status_bg },
     TmuxStatusLeft { fg = c1, bg = tmux_status_bg },
     TmuxStatusRight { fg = c1, bg = tmux_status_bg },
-    TmuxWindowStatus { fg = c2, bg = bg.darken(10) },
+    TmuxWindowStatus { fg = fg, bg = bg.darken(10) },
     TmuxWindowStatusActivity { fg = c3, bg = bg },
 
     -- Lualine
