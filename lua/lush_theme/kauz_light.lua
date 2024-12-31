@@ -92,6 +92,9 @@ local git_add = ok
 local git_change = warn
 local git_delete = error
 
+-- tmux
+local tmux_status_bg = c4.li(75)
+
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
 ---@diagnostic disable: undefined-global
@@ -410,10 +413,10 @@ local theme = lush(function(injected_functions)
     TmuxMessage { fg = c1, bg = bg },
     TmuxMessageCommand { fg = c5, bg = bg.darken(10) },
     TmuxPaneBorder { fg = fg, bg = c1.li(75) },
-    TmuxPaneActiveBorder { fg = c2, bg = c2.li(75) },
-    TmuxStatus { fg = c1, bg = c4.li(75) },
-    TmuxStatusLeft { fg = c4, bg = c4.li(75) },
-    TmuxStatusRight { fg = c3, bg = c4.li(75) },
+    TmuxPaneActiveBorder { fg = c2, bg = tmux_status_bg },
+    TmuxStatus { fg = c4, bg = tmux_status_bg },
+    TmuxStatusLeft { fg = c1, bg = tmux_status_bg },
+    TmuxStatusRight { fg = c1, bg = tmux_status_bg },
     TmuxWindowStatus { fg = c2, bg = bg.darken(10) },
     TmuxWindowStatusActivity { fg = c3, bg = bg },
 
