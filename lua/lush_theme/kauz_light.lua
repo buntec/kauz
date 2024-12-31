@@ -93,11 +93,14 @@ local git_change = warn
 local git_delete = error
 
 -- tmux
-local tmux_status_bg = c4.li(80)
-local tmux_message_bg = c1.li(80)
-local tmux_active_border = c3.li(50)
+local tmux_status_bg = c4.li(85)
+local tmux_message_bg = c1.li(85)
+local tmux_active_border = c5.li(75)
 local tmux_border = tmux_active_border.desaturate(100)
-local tmux_mode_bg = c4.lighten(80)
+local tmux_mode_bg = c4.lighten(85)
+
+-- snacks
+local snacks_indent = c3.li(75)
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
@@ -360,6 +363,9 @@ local theme = lush(function(injected_functions)
     TelescopeResultsDiffDelete { bg = git_delete.desaturate(60).lighten(60), fg = git_delete.darken(10) },
     --TelescopeResultsDiffUntracked  { },
 
+    SnacksIndent { bg = bg, fg = snacks_indent.de(100) },
+    SnacksIndentScope { bg = bg, fg = snacks_indent },
+
     -- Kitty
     KittyBlack { fg = black },
     KittyBlackBright { fg = black.li(terminal_br) },
@@ -419,9 +425,9 @@ local theme = lush(function(injected_functions)
     TmuxPaneBorder { fg = tmux_border, bg = bg },
     TmuxPaneActiveBorder { fg = tmux_active_border, bg = bg },
     TmuxStatus { fg = c4, bg = tmux_status_bg },
-    TmuxStatusLeft { fg = c1, bg = tmux_status_bg },
+    TmuxStatusLeft { fg = c3, bg = tmux_status_bg },
     TmuxStatusRight { fg = c1, bg = tmux_status_bg },
-    TmuxWindowStatus { fg = fg, bg = bg.darken(10) },
+    TmuxWindowStatus { fg = c1, bg = tmux_status_bg },
     TmuxWindowStatusActivity { fg = c3, bg = bg },
 
     -- Lualine

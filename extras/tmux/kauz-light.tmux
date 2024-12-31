@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 
-# Kauz colors for Tmux
+# kauz colors for tmux
 
-set -g mode-style "fg=#807450,bg=#D4E5F1"
+set -g mode-style fg=#807450,bg=#ddeaf4
 
-set -g message-style "fg=#807450,bg=#F2E2B4"
-set -g message-command-style "fg=#B4557A,bg=#F2E2B4"
+set -g message-style fg=#807450,bg=#f4e7c5
+set -g message-command-style fg=#b4557a,bg=#f4e7c5
 
-set -g pane-border-style "fg=#B9B9B9"
-set -g pane-active-border-style "fg=#87C3C2"
+set -g pane-border-style fg=#dadada
+set -g pane-active-border-style fg=#edd3db
 
-set -g status-style "fg=#57798D,bg=#D4E5F1"
-set -g status-left-style "fg=#807450,bg=#D4E5F1"
-set -g status-right-style "fg=#807450,bg=#D4E5F1"
+set -g status-style fg=#57798d,bg=#ddeaf4
+set -g status-left-style fg=#547b7b,bg=#ddeaf4
+set -g status-right-style fg=#807450,bg=#ddeaf4
 
-set -g window-status-activity-style "underscore,fg=#547B7B,bg=#FEFCFD"
-set -g window-status-style "fg=#807450,bg=#F0D9EE"
+set -g window-status-activity-style underscore,fg=#547b7b,bg=#fefcfd
+set -g window-status-style fg=#807450,bg=#ddeaf4
