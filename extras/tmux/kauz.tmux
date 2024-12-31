@@ -14,5 +14,5 @@ set -g status-style "fg=#CAB882,bg=#121D23"
 set -g status-left-style "fg=#DDA8DA,bg=#121D23"
 set -g status-right-style "fg=#8DBFDD,bg=#121D23"
 
-setw -g window-status-activity-style "underscore,fg=#8DBFDD,bg=#17232A"
-setw -g window-status-style "fg=#87C3C2,bg=#17232A"
+set -g window-status-activity-style "underscore,fg=#8DBFDD,bg=#17232A"
+set -g window-status-style "fg=#87C3C2,bg=#17232A"

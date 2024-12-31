@@ -21,8 +21,8 @@ set -g status-style "fg=${status_fg},bg=${status_bg}"
 set -g status-left-style "fg=${status_left_fg},bg=${status_left_bg}"
 set -g status-right-style "fg=${status_right_fg},bg=${status_right_bg}"
 
-setw -g window-status-activity-style "underscore,fg=${window_status_activity_fg},bg=${window_status_activity_bg}"
-setw -g window-status-style "fg=${window_status_fg},bg=${window_status_bg}"
+set -g window-status-activity-style "underscore,fg=${window_status_activity_fg},bg=${window_status_activity_bg}"
+set -g window-status-style "fg=${window_status_fg},bg=${window_status_bg}"
 ]],
     colors
   )

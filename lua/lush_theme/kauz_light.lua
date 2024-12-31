@@ -93,11 +93,11 @@ local git_change = warn
 local git_delete = error
 
 -- tmux
-local tmux_status_bg = c4.li(85)
-local tmux_message_bg = c1.li(85)
-local tmux_active_border = c5.li(25)
+local tmux_status_bg = c4.li(80)
+local tmux_message_bg = c1.li(80)
+local tmux_active_border = c3.li(50)
 local tmux_border = tmux_active_border.desaturate(100)
-local tmux_mode_bg = c4.lighten(85)
+local tmux_mode_bg = c4.lighten(80)
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
