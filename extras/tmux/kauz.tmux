@@ -10,6 +10,7 @@ set -g message-command-style "fg=#87C3C2,bg=#17232A"
 set -g pane-border-style "fg=#B9B9B9"
 set -g pane-active-border-style "fg=#8DBFDD"
 
+set -g status-style "fg=#CAB882,bg=#121D23"
 set -g status-left-style "fg=#DDA8DA,bg=#121D23"
 set -g status-right-style "fg=#8DBFDD,bg=#121D23"
 

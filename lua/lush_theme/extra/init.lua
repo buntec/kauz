@@ -117,6 +117,8 @@ function M.setup(light)
       message_command_bg = kauz.TmuxMessageCommand.bg.hex,
       pane_border_fg = kauz.TmuxPaneBorder.fg.hex,
       pane_active_border_fg = kauz.TmuxPaneActiveBorder.fg.hex,
+      status_fg = kauz.TmuxStatus.fg.hex,
+      status_bg = kauz.TmuxStatus.bg.hex,
       status_left_fg = kauz.TmuxStatusLeft.fg.hex,
       status_left_bg = kauz.TmuxStatusLeft.bg.hex,
       status_right_fg = kauz.TmuxStatusRight.fg.hex,
