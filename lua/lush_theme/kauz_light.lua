@@ -95,7 +95,7 @@ local git_delete = error
 -- tmux
 local tmux_status_bg = c4.li(80)
 local tmux_message_bg = c1.li(85)
-local tmux_active_border = c3.li(50)
+local tmux_active_border = c1.li(50)
 local tmux_border = tmux_active_border.lighten(50).desaturate(100)
 local tmux_mode_bg = c2.lighten(85)
 
