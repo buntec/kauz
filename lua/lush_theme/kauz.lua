@@ -60,8 +60,8 @@ local c5 = hsl(350, saturation, lightness)
 
 local gray = hsl(0, 0, 60)
 
-local fg = hsl(0, 0, 75)
-local bg = c3.darken(85)
+local fg = hsl(0, 0, 80)
+local bg = c3.darken(80)
 
 local cursor_bg = c1.darken(50)
 local selection_bg = c3.darken(60)
@@ -93,7 +93,7 @@ local git_change = warn
 local git_delete = error
 
 -- tmux
-local tmux_status_bg = c3.da(75)
+local tmux_status_bg = c3.da(65)
 local tmux_message_bg = c4.da(75)
 local tmux_active_border = c2.da(25)
 local tmux_border = tmux_active_border.desaturate(100).darken(50)
@@ -121,7 +121,7 @@ local theme = lush(function(injected_functions)
     -- ColorColumn    { }, -- Columns set with 'colorcolumn'
     -- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor { bg = cursor_bg, fg = fg }, -- Character under the cursor
-    CurSearch {}, -- Highlighting a search pattern under the cursor (see 'hlsearch')
+    CurSearch { bg = c5.da(50), fg = c5 }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
     lCursor { bg = cursor_bg, fg = fg }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM {}, -- Like Cursor, but used when in IME mode |CursorIM|
     CursorColumn { bg = cursor_bg, fg = fg }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
@@ -168,7 +168,7 @@ local theme = lush(function(injected_functions)
     -- PmenuThumb     { }, -- Popup menu: Thumb of the scrollbar.
     -- Question       { }, -- |hit-enter| prompt and yes/no questions
     -- QuickFixLine   { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search { bg = selection_bg }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
+    Search { bg = c2.da(50), fg = c2 }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
     -- SpecialKey     { }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
     -- SpellBad       { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     -- SpellCap       { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.

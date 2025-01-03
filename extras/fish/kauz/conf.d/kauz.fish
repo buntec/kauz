@@ -1,7 +1,7 @@
     # Kauz colorscheme
 
     # Syntax Highlighting Colors
-    set -g fish_color_normal B9B9B9
+    set -g fish_color_normal C6C6C6
     set -g fish_color_command E9D38E
     set -g fish_color_keyword ECCAEA
     set -g fish_color_quote E9D38E
@@ -26,11 +26,11 @@
     # Pure prompt
     set -g pure_color_prompt_on_success ECCAEA
     set -g pure_color_danger D17589
-    set -g pure_color_dark 111D24
+    set -g pure_color_dark 17262E
     set -g pure_color_info 6A999D
-    set -g pure_color_light B9B9B9
-    set -g pure_color_mute 314A58
-    set -g pure_color_normal B9B9B9
+    set -g pure_color_light C6C6C6
+    set -g pure_color_mute 385463
+    set -g pure_color_normal C6C6C6
     set -g pure_color_primary BBD9EC
     set -g pure_color_success 95E2E0
     set -g pure_color_warning D47766
