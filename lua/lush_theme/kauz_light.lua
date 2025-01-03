@@ -57,10 +57,10 @@ local c3 = hsl(190, 50, 75).darken(c_darken).saturate(c_sat)
 local c4 = hsl(230, 50, 75).darken(c_darken).saturate(c_sat)
 local c5 = hsl(350, 50, 75).darken(c_darken).saturate(c_sat)
 
-local fg = c1
-local bg = c2.lighten(99)
+local fg = c1.darken(20)
+local bg = c2.lighten(98)
 
-local selection_bg = c3.lighten(85)
+local selection_bg = c3.lighten(50)
 local visualmode_bg = c1.lighten(85)
 local insertmode_bg = c1.lighten(85)
 local comment_fg = c1.desaturate(80).li(50)
@@ -122,7 +122,7 @@ local theme = lush(function(injected_functions)
     ColorColumn {}, -- Columns set with 'colorcolumn'
     -- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor { bg = c1.lighten(10), fg = fg.lighten(80) }, -- Character under the cursor
-    -- CurSearch {}, -- Highlighting a search pattern under the cursor (see 'hlsearch')
+    CurSearch { bg = c5.li(25), fg = c5.da(25) }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
     -- lCursor { bg = bg, fg = fg }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     -- CursorIM {}, -- Like Cursor, but used when in IME mode |CursorIM|
     CursorColumn { bg = c4.lighten(85) }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
@@ -140,7 +140,7 @@ local theme = lush(function(injected_functions)
     Folded {}, -- Line used for closed folds
     -- FoldColumn     { }, -- 'foldcolumn'
     SignColumn {}, -- Column where |signs| are displayed
-    IncSearch { bg = bg.lighten(10) }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    IncSearch { fg = fg, bg = c2.lighten(75) }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     -- Substitute     { }, -- |:substitute| replacement text highlighting
     LineNr { fg = linenr_fg }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     -- LineNrAbove    { }, -- Line number for when the 'relativenumber' option is set, above the cursor line
@@ -169,7 +169,7 @@ local theme = lush(function(injected_functions)
     PmenuThumb {}, -- Popup menu: Thumb of the scrollbar.
     -- Question       { }, -- |hit-enter| prompt and yes/no questions
     -- QuickFixLine   { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search { bg = selection_bg }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
+    Search { bg = c1.li(75), fg = fg }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
     -- SpecialKey     { }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
     -- SpellBad       { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     -- SpellCap       { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.

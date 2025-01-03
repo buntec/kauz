@@ -3,6 +3,6 @@ c2 = #A35A9F
 c3 = #547B7B
 c4 = #57798D
 c5 = #B4557A
-fg = #807450
+fg = #655B3F
 bg = #FEFCFD
 comment = #BCB8AF
