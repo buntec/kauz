@@ -1,7 +1,5 @@
 # Kauz 🦉
 
-*This is work in progress!*
-
 A colorscheme for neovim built with [Lush](https://github.com/rktjmp/lush.nvim).
 Includes matching themes for kitty, fish and tmux.
 
@@ -43,12 +41,9 @@ are taken from the gorgeous [Tokyo Night](https://github.com/folke/tokyonight.nv
 ## Screenshots
 
 ### Scala
-
-<img width="1840" alt="Screenshot 2024-10-04 at 17 35 49" src="https://github.com/user-attachments/assets/3899efaa-c069-4b75-a72d-812c8dcba440">
-<img width="1840" alt="Screenshot 2024-10-04 at 17 16 15" src="https://github.com/user-attachments/assets/56ba3e7c-6c79-4649-938e-2eb48fd9b8d1">
-
+<img width="1728" alt="Screenshot 2025-01-03 at 16 29 04" src="https://github.com/user-attachments/assets/a98ebfd0-80a6-41d7-8ace-36db588e5492" />
+<img width="1728" alt="Screenshot 2025-01-03 at 16 42 30" src="https://github.com/user-attachments/assets/f9267751-b651-4c4f-ad4f-59d9b23b43cf" />
 
 ### Nix
-
-<img width="1840" alt="Screenshot 2024-10-04 at 17 36 58" src="https://github.com/user-attachments/assets/5d91f05d-6d78-4c66-a29c-b6461efb22f0">
-<img width="1840" alt="Screenshot 2024-10-04 at 17 21 42" src="https://github.com/user-attachments/assets/0fa604b9-6f8b-451f-a5e4-10a92e4506ec">
+<img width="1728" alt="Screenshot 2025-01-03 at 16 27 47" src="https://github.com/user-attachments/assets/f3be4ba3-1884-4ac7-aef2-ed40e0c0134f" />
+<img width="1728" alt="Screenshot 2025-01-03 at 16 41 30" src="https://github.com/user-attachments/assets/24e7cbd3-7fc1-4d33-ba18-6d2e5d83995a" />
