@@ -197,7 +197,7 @@ local theme = lush(function(injected_functions)
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment { fg = comment_fg, gui = "italic" }, -- Any comment
+    Comment { bg = bg, fg = comment_fg, gui = "italic" }, -- Any comment
 
     Constant { fg = c1 }, -- (*) Any constant
     String { fg = c1 }, --   A string constant: "this is a string"
@@ -237,8 +237,8 @@ local theme = lush(function(injected_functions)
 
     Underlined { gui = "underline" }, -- Text that stands out, HTML links
     -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
-    Error { bg = error }, -- Any erroneous construct
-    Todo { bg = c2.darken(50) }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Error { bg = error, fg = error.da(50) }, -- Any erroneous construct
+    Todo { bg = warn.li(10), fg = warn.da(50), gui = "italic" }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     -- These groups are for the native LSP client and diagnostic system. Some
     -- other LSP clients may use these groups, or use their own. Consult your
@@ -303,8 +303,8 @@ local theme = lush(function(injected_functions)
     sym "@text.title" { fg = c2 }, -- Title
     sym "@text.uri" { fg = c4 }, -- Underlined
     -- sym"@text.underline"    { }, -- Underlined
-    sym "@text.todo" { bg = c2 }, -- Todo
-    sym "@comment" { fg = comment_fg }, -- Comment
+    sym "@text.todo" { g = warn.li(10), fg = warn.da(50), gui = "italic" }, -- Todo
+    sym "@comment" { bg = bg, fg = comment_fg, gui = "italic" }, -- comments
     -- sym"@punctuation"       { }, -- Delimiter
     -- sym"@constant"          { }, -- Constant
     -- sym"@constant.builtin"  { }, -- Special
