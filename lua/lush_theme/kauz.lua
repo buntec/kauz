@@ -100,7 +100,7 @@ local tmux_border = tmux_active_border.desaturate(100).darken(50)
 local tmux_mode_bg = c1.da(65)
 
 -- snacks
-local snacks_indent = c5.darken(25)
+local snacks_indent = c1.darken(25).de(50)
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
