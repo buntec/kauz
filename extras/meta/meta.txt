@@ -1,8 +1,0 @@
-c1 = #E9D38E
-c2 = #95E2E0
-c3 = #BBD9EC
-c4 = #ECCAEA
-c5 = #EDCCD6
-fg = #C6C6C6
-bg = #1B2C35
-comment = #586872
