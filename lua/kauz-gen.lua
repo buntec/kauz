@@ -19,7 +19,7 @@
 local mc = require "mini.colors"
 
 -- toggle this to preview dark/light variants
-local preview_dark = false
+local preview_dark = true
 
 -- Kauz theme definitions
 
@@ -34,7 +34,7 @@ local c1 = 5.5 -- chroma of 08--0F
 local l0 = 20.0 -- lightness of darkest background
 local dl = 10.0 -- lightness increments
 local l1 = 80.0 -- lightness of 08--0F
-local l2 = 100.0 -- lightness of 12--17
+local l2 = 90.0 -- lightness of 12--17
 
 Kauz_palette_dark = {
   base00 = mc.convert({ l = l0 + 0 * dl, c = c0, h = h0 }, "hex"), -- default background
@@ -67,12 +67,12 @@ Kauz_palette_dark = {
 
 -- light
 
-c0 = 2.0 -- chroma of 00--07
-c1 = 5.5 -- chroma of 08--0F
+c0 = 1.0 -- chroma of 00--07
+c1 = 5.0 -- chroma of 08--0F
 l0 = 100.0 -- lightness of lightest background
 dl = -10.0 -- lightness decrements of 00--07
 l1 = 60.0 -- lightness of 08--0F
-l2 = 80.0 -- lightness of 12--17
+l2 = 70.0 -- lightness of 12--17
 
 Kauz_palette_light = {
   base00 = mc.convert({ l = l0 + 0 * dl, c = c0, h = h0 }, "hex"), -- default background
@@ -93,8 +93,8 @@ Kauz_palette_light = {
   base0E = mc.convert({ l = l1, c = c1, h = h1 + 6 * dh }, "hex"),
   base0F = mc.convert({ l = l1, c = c1, h = h1 + 7 * dh }, "hex"),
 
-  base10 = mc.convert({ l = l0 - 1 * dl, c = c0, h = h0 }, "hex"), -- lighter background (lighter than 00)
-  base11 = mc.convert({ l = l0 - 2 * dl, c = c0, h = h0 }, "hex"), -- the lightest background (even lighter than 10)
+  base10 = mc.convert({ l = 99.0, c = c0, h = h0 }, "hex"), -- should be lighter than 00, but we are already saturated, so we make it slightly darker
+  base11 = mc.convert({ l = 98.0, c = c0, h = h0 }, "hex"),
   base12 = mc.convert({ l = l2, c = c1, h = h1 + 0 * dh }, "hex"), -- brighter 08
   base13 = mc.convert({ l = l2, c = c1, h = h1 + 2 * dh }, "hex"), -- brigher 0A
   base14 = mc.convert({ l = l2, c = c1, h = h1 + 3 * dh }, "hex"), -- brighter 0B
@@ -120,7 +120,7 @@ local function template(str, table)
 end
 
 local function write(str, baseDir, fileName)
-  print("[write] " .. baseDir .. "/" .. fileName)
+  print("writing " .. baseDir .. "/" .. fileName)
   vim.fn.mkdir(vim.fs.dirname(baseDir .. "/" .. fileName), "p")
   local file = assert(io.open(baseDir .. "/" .. fileName, "w"))
   file:write(str)
@@ -223,11 +223,7 @@ end
 
 local function run_current_lua_file()
   local file = vim.fn.expand "%"
-  if file ~= "" then
-    vim.cmd("luafile " .. file)
-  else
-    vim.print "No file to execute."
-  end
+  vim.cmd("luafile " .. file)
 end
 
 if preview_dark then
@@ -237,8 +233,10 @@ else
 end
 
 vim.api.nvim_create_user_command("KauzWriteSchemeToYaml", function()
+  print "\n"
   write_yaml_base16()
   write_yaml_base24()
+  print "done!"
 end, { desc = "write Kauz scheme to yaml files" })
 
 local group = vim.api.nvim_create_augroup("kauz", { clear = true })
