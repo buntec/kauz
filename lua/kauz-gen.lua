@@ -46,23 +46,23 @@ Kauz_palette_dark = {
   base06 = mc.convert({ l = l0 + 6 * dl, c = c0, h = h0 }, "hex"), -- light foreground
   base07 = mc.convert({ l = l0 + 7 * dl, c = c0, h = h0 }, "hex"), -- the lightest foreground
 
-  base08 = mc.convert({ l = l1, c = c1, h = h1 + 0 * dh }, "hex"), -- variables, tags
-  base09 = mc.convert({ l = l1, c = c1, h = h1 + 1 * dh }, "hex"), -- integers, booleans, constants,...
-  base0A = mc.convert({ l = l1, c = c1, h = h1 + 2 * dh }, "hex"), -- classes, search text background
-  base0B = mc.convert({ l = l1, c = c1, h = h1 + 3 * dh }, "hex"), -- strings, inherited classes, diff inserted
-  base0C = mc.convert({ l = l1, c = c1, h = h1 + 4 * dh }, "hex"), -- support, regex, escape characters
-  base0D = mc.convert({ l = l1, c = c1, h = h1 + 5 * dh }, "hex"), -- functions, methods, ...
-  base0E = mc.convert({ l = l1, c = c1, h = h1 + 6 * dh }, "hex"), -- keywords, storage, diff changed, ...
-  base0F = mc.convert({ l = l1, c = c1, h = h1 + 7 * dh }, "hex"), -- deprecated, opening/closing tags, ...
+  base08 = mc.convert({ l = l1, c = c1, h = h1 + 4 * dh }, "hex"), -- diff deleted
+  base09 = mc.convert({ l = l1, c = c1, h = h1 + 1 * dh }, "hex"),
+  base0A = mc.convert({ l = l1, c = c1, h = h1 + 2 * dh }, "hex"),
+  base0B = mc.convert({ l = l1, c = c1, h = h1 + 0 * dh }, "hex"), -- diff inserted
+  base0C = mc.convert({ l = l1, c = c1, h = h1 + 6 * dh }, "hex"),
+  base0D = mc.convert({ l = l1, c = c1, h = h1 + 5 * dh }, "hex"),
+  base0E = mc.convert({ l = l1, c = c1, h = h1 + 3 * dh }, "hex"), -- diff changed
+  base0F = mc.convert({ l = l1, c = c1, h = h1 + 7 * dh }, "hex"),
 
   base10 = mc.convert({ l = l0 - 1 * dl, c = c0, h = h0 }, "hex"), -- darker background (darker than 00)
   base11 = mc.convert({ l = l0 - 2 * dl, c = c0, h = h0 }, "hex"), -- the darkest background (even darker than 10)
-  base12 = mc.convert({ l = l2, c = c1, h = h1 + 0 * dh }, "hex"), -- brighter 08
+  base12 = mc.convert({ l = l2, c = c1, h = h1 + 4 * dh }, "hex"), -- brighter 08
   base13 = mc.convert({ l = l2, c = c1, h = h1 + 2 * dh }, "hex"), -- brigher 0A
-  base14 = mc.convert({ l = l2, c = c1, h = h1 + 3 * dh }, "hex"), -- brighter 0B
-  base15 = mc.convert({ l = l2, c = c1, h = h1 + 4 * dh }, "hex"), -- brighter 0C
+  base14 = mc.convert({ l = l2, c = c1, h = h1 + 0 * dh }, "hex"), -- brighter 0B
+  base15 = mc.convert({ l = l2, c = c1, h = h1 + 6 * dh }, "hex"), -- brighter 0C
   base16 = mc.convert({ l = l2, c = c1, h = h1 + 5 * dh }, "hex"), -- brighter 0D
-  base17 = mc.convert({ l = l2, c = c1, h = h1 + 6 * dh }, "hex"), -- brighter 0E
+  base17 = mc.convert({ l = l2, c = c1, h = h1 + 3 * dh }, "hex"), -- brighter 0E
 }
 
 -- light
@@ -84,23 +84,23 @@ Kauz_palette_light = {
   base06 = mc.convert({ l = l0 + 6 * dl, c = c0, h = h0 }, "hex"),
   base07 = mc.convert({ l = l0 + 7 * dl, c = c0, h = h0 }, "hex"),
 
-  base08 = mc.convert({ l = l1, c = c1, h = h1 + 0 * dh }, "hex"),
+  base08 = mc.convert({ l = l1, c = c1, h = h1 + 4 * dh }, "hex"), -- diff deleted
   base09 = mc.convert({ l = l1, c = c1, h = h1 + 1 * dh }, "hex"),
   base0A = mc.convert({ l = l1, c = c1, h = h1 + 2 * dh }, "hex"),
-  base0B = mc.convert({ l = l1, c = c1, h = h1 + 3 * dh }, "hex"),
-  base0C = mc.convert({ l = l1, c = c1, h = h1 + 4 * dh }, "hex"),
+  base0B = mc.convert({ l = l1, c = c1, h = h1 + 0 * dh }, "hex"), -- diff inserted
+  base0C = mc.convert({ l = l1, c = c1, h = h1 + 6 * dh }, "hex"),
   base0D = mc.convert({ l = l1, c = c1, h = h1 + 5 * dh }, "hex"),
-  base0E = mc.convert({ l = l1, c = c1, h = h1 + 6 * dh }, "hex"),
+  base0E = mc.convert({ l = l1, c = c1, h = h1 + 3 * dh }, "hex"), -- diff changed
   base0F = mc.convert({ l = l1, c = c1, h = h1 + 7 * dh }, "hex"),
 
   base10 = mc.convert({ l = 99.0, c = c0, h = h0 }, "hex"), -- should be lighter than 00, but we are already saturated, so we make it slightly darker
   base11 = mc.convert({ l = 98.0, c = c0, h = h0 }, "hex"),
-  base12 = mc.convert({ l = l2, c = c1, h = h1 + 0 * dh }, "hex"), -- brighter 08
+  base12 = mc.convert({ l = l2, c = c1, h = h1 + 4 * dh }, "hex"), -- brighter 08
   base13 = mc.convert({ l = l2, c = c1, h = h1 + 2 * dh }, "hex"), -- brigher 0A
-  base14 = mc.convert({ l = l2, c = c1, h = h1 + 3 * dh }, "hex"), -- brighter 0B
-  base15 = mc.convert({ l = l2, c = c1, h = h1 + 4 * dh }, "hex"), -- brighter 0C
+  base14 = mc.convert({ l = l2, c = c1, h = h1 + 0 * dh }, "hex"), -- brighter 0B
+  base15 = mc.convert({ l = l2, c = c1, h = h1 + 6 * dh }, "hex"), -- brighter 0C
   base16 = mc.convert({ l = l2, c = c1, h = h1 + 5 * dh }, "hex"), -- brighter 0D
-  base17 = mc.convert({ l = l2, c = c1, h = h1 + 6 * dh }, "hex"), -- brighter 0E
+  base17 = mc.convert({ l = l2, c = c1, h = h1 + 3 * dh }, "hex"), -- brighter 0E
 }
 
 -- Helper functions
