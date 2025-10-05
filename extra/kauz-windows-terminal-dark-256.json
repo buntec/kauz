@@ -1,0 +1,23 @@
+{
+  "name": "Kauz dark (256)",
+  "foreground": "#8cb3bf",
+  "background": "#0e333e",
+  "cursorColor": "#8cb3bf",
+  "selectionBackground": "#406470",
+  "black": "#0e333e",
+  "red": "#e6b8c5",
+  "green": "#a0d3c8",
+  "yellow": "#b9c6eb",
+  "blue": "#e6bcaa",
+  "purple": "#d4bde0",
+  "cyan": "#d4c69e",
+  "white": "#8cb3bf",
+  "brightBlack": "#597e8a",
+  "brightRed": "#e6b8c5",
+  "brightGreen": "#a0d3c8",
+  "brightYellow": "#b9c6eb",
+  "brightBlue": "#e6bcaa",
+  "brightPurple": "#d4bde0",
+  "brightCyan": "#d4c69e",
+  "brightWhite": "#c3eaf8"
+}

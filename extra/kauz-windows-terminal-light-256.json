@@ -1,0 +1,23 @@
+{
+  "name": "Kauz light (256)",
+  "foreground": "#71797b",
+  "background": "#ffffff",
+  "cursorColor": "#71797b",
+  "selectionBackground": "#c0c8cb",
+  "black": "#ffffff",
+  "red": "#ac858f",
+  "green": "#6f9b92",
+  "yellow": "#8590b0",
+  "blue": "#ac8878",
+  "purple": "#9d88a6",
+  "cyan": "#9d906e",
+  "white": "#71797b",
+  "brightBlack": "#a5adb0",
+  "brightRed": "#ac858f",
+  "brightGreen": "#6f9b92",
+  "brightYellow": "#8590b0",
+  "brightBlue": "#ac8878",
+  "brightPurple": "#9d88a6",
+  "brightCyan": "#9d906e",
+  "brightWhite": "#404749"
+}
